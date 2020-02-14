@@ -1,0 +1,32 @@
+<manifest alg="2" build="2017.0.0.363" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster" exportTarget="other" domain="Tikolas.github.io" resolutions="1x" timestamp="1581683121815">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="pravilamarket.css" crc="92791686" ref="pravilamarket"/>
+    <file name="market.css" crc="4051398107" ref="market"/>
+    <file name="tour.css" crc="49710897" ref="tour"/>
+    <file name="xho.css" crc="4283922256" ref="xho"/>
+    <file name="me.css" crc="3849891175" ref="me"/>
+    <file name="social.css" crc="59873794" ref="social"/>
+    <file name="index.css" crc="4037713280" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:market:social:xho:pravilamarket:me:tour"/>
+    <file name="museutils.js" crc="163421577" ref="index:market:social:xho:pravilamarket:me:tour"/>
+    <file name="whatinput.js" crc="86476730" ref="index:market:social:xho:pravilamarket:me:tour"/>
+    <file name="museconfig.js" crc="168988563" ref="index:market:social:xho:pravilamarket:me:tour"/>
+    <file name="jquery.watch.js" crc="104486786" ref="index:market:social:xho:pravilamarket:me:tour"/>
+    <file name="require.js" crc="244322403" ref="index:market:social:xho:pravilamarket:me:tour"/>
+    <file name="jquery.musemenu.js" crc="146495465" ref="xho:me:tour"/>
+    <file name="html5shiv.js" crc="4241844378" ref="xho:pravilamarket:me:tour"/>
+  </folder>
+  <folder name="images">
+    <file name="pro.jpg" crc="278957819" seo="true" ref="social"/>
+  </folder>
+  <file name="index.html" crc="225678553" seo="true" mt="1581682011416" redirect="true"/>
+  <file name="market.html" crc="21159210" seo="true" mt="1581682180991" redirect="true"/>
+  <file name="social.html" crc="111075635" seo="true" mt="1581682011410" redirect="true"/>
+  <file name="xho.html" crc="4081872837" seo="true" mt="1581670806407" redirect="true"/>
+  <file name="pravilamarket.html" crc="261703294" seo="true" mt="1581670802233" redirect="true"/>
+  <file name="me.html" crc="342387671" seo="true" mt="1581670814449" redirect="true"/>
+  <file name="tour.html" crc="4150726400" seo="true" mt="1581670809873" redirect="true"/>
+</manifest>
