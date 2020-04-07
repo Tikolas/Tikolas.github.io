@@ -9,7 +9,37 @@
   </url>
   <url>
     <loc>http://tikolas.github.io/contact.html</loc>
-    <lastmod>2020-04-06</lastmod>
+    <lastmod>2020-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://tikolas.github.io/images/se-crop-u159.jpg</loc>
+    <lastmod>2020-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://tikolas.github.io/images/imgpreview-crop-u147.jpg</loc>
+    <lastmod>2020-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://tikolas.github.io/images/ims-crop-u153.png</loc>
+    <lastmod>2020-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://tikolas.github.io/images/dot-crop-u215.jpg</loc>
+    <lastmod>2020-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://tikolas.github.io/images/imgpreview%20(1)-crop-u150.jpg</loc>
+    <lastmod>2020-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
