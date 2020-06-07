@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html class="UTF" lang="ru-RU">
  <head>
+ <script language="JavaScript">
+RewriteEngine on
+RewriteBase /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ github.io/$index2 [R=301,L]
+RewriteCond %{REQUEST_URI} !(\.[^./]+)$
+RewriteCond %{REQUEST_fileNAME} !-d
+RewriteCond %{REQUEST_fileNAME} !-f
+RewriteRule (.*) /$index2.html
+</script>
 </head>
 <body>
-<invisible>
 Buuu
-</invisible>
+</body>
+<iframe  frameborder="no" scrolling="no" width="150" height="280" src="https://yandex.ru/time/widget/?geoid=202&lang=ru&layout=vert&type=digital&face=serif"></iframe>
+</body>
