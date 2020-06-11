@@ -1,0 +1,184 @@
+﻿<!-----// переменная time может хранить дробные числа
+float time = 0;
+void Update () {
+  // складываем time и Time.deltaTime
+  // результат сохраняем обратно в time,
+  // чтобы время обновилось
+  time = time + Time.deltaTime;
+  // отбрасывем дробную часть 
+  // и сохраняем целую часть в seconds
+  int seconds = (int)time;
+  print(seconds);
+}
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Загрузка...</title>
+  <style>
+   .loading {
+    width: 240px;
+    margin: auto;
+    padding: 20px 0 10px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+   }
+   .spin {
+    display: inline-block;
+    width: 30px; height: 30px;
+    border: 10px solid #ccc;
+    border-right: 10px solid #000;
+    border-radius: 30px;
+    /* Анимация */
+    -webkit-animation: spin 2s linear 0s infinite normal;
+    -moz-animation: spin 2s linear 0s infinite normal;
+    -o-animation: spin 2s linear 0s infinite normal;
+    animation: spin 2s linear 0s infinite normal;
+   }
+   /* Задаём вращение */
+   @-webkit-keyframes spin { from { -webkit-transform: rotate(0deg); } 
+                             to { -webkit-transform: rotate(360deg); } }
+   @-moz-keyframes spin { from { -moz-transform: rotate(0deg); } 
+                          to { -moz-transform: rotate(360deg); } }
+   @-o-keyframes spin { from { -o-transform: rotate(0deg); } 
+                        to { -o-transform: rotate(360deg); } }
+   @keyframes spin { from { transform: rotate(0deg); } 
+                     to { transform: rotate(360deg); } }
+  </style>
+ </head>
+ <body>
+  <div class="loading">
+   <div class="spin"></div>
+   <p>Загружается...</p>
+  </div>
+ </body>
+</html>
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>orient</title>
+  <style>
+   .vert {
+    -moz-orient: vertical;
+   }
+  </style> 
+ </head>
+ <body>
+  <p>Горизонтальный индикатор прогресса</p>
+  <progress max="100" value="75"></progress>
+  <p>Вертикальный индикатор прогресса</p>
+  <progress max="100" value="75" class="vert"></progress>
+ </body>
+</html>
+---->
+<!DOCTYPE html>
+<html>
+	<head>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5954147232565215",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+		<title>Секундомер</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<link rel="stylesheet" href="http://jkeks.ru/css/kube6.5.min.css" />
+		<style>
+			.wrapper{width: 80%; max-width: 960px; margin: auto;}
+			coins{font-size: 15vw; line-height: 15vw; font-weight: 900; color: #FFBC36;}
+			jcoin, pass{ color: #FFD174; font-weight: 700;  }
+			body{background-color: #282828; color: #F8F8F2;}
+			#header     {background-color: #282828; width: 100%; padding: 10px; color: #ABBD81; display: none;}
+			h1 {color: #B79348; font-weight: 900; }
+			h2 {color: #F03C69;}
+			h5 {color: #B79348; }
+			#tradingview    {background-color: #282828; width: 100%; ;padding: 10px; color: #ABBD81;}
+			#tradingview h2 {color: #FFD174; font-weight: 900;}
+			#url{color: #6293FF;}
+			kop{ color: white; font-size: 8vw; }
+			#IDRate{display: inline;}
+			#timers{ background-color: #747474; }
+			progress{ width: 100%; height: 4vw; }
+			#example{ display: none; }
+			#yesno{font-size: 20vw; line-height: 20vw; font-weight: 900; color: #B79348;}
+			#chars{ font-size: 4vw; line-height: 4vw;}
+			@media screen and (max-device-width:480px){
+			  .nomob{display: none;}
+			}
+			#sec   { font-size: 10vw; line-height: 10vw; color: #FFA700; font-weight: 700;}
+			#secs  { font-size: 8vw; line-height: 8vw; color: #BF7E00; font-weight: 700;}
+			#reset {background-color: #F03C69;}
+		</style>
+		<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAEAEAAAAAAAEQEAAAAAAAEAEAAAAAAAAAEBAAAAAAAAEAAQAAAAAAEAAAEAAAAAAAAAABAAAAAAAAAAAQAQAAAAAAAAEBAAAAAAAAABEQAAAAAAARERAAAAAAAAAREQAAAAAAAAARAAAAAAAAAAAQAAAAAAAAAADt/wAA2/8AAJf/AABv/wAA1/8AALv/AAB9/wAA/v8AAP9vAAD/rwAA/8cAAP8HAAD/wwAA//MAAP/9AAD//wAA" rel="icon" type="image/x-icon" />
+<script>
+
+document.addEventListener("keydown", keyDownTextField, false);
+window.sec = 0;
+window.secOn = 0;
+
+
+function keyDownTextField(e) {
+	var keyCode = e.keyCode;
+	console.log (keyCode);
+	if (keyCode == 32) start();
+	if (keyCode == 27) reset();
+	if (keyCode == 13) stop();
+}
+
+function start() {
+	if ( window.secOn == 0 ){
+		id = setInterval(tick,10);
+		window.secOn = 1;
+		$("button#start").html("Стоп");
+	}
+	else{
+		clearInterval(id);
+		window.secOn = 0;
+		$("button#start").html("Старт");
+	}
+}
+
+function stop() {
+	$("#secs").prepend( $("#sec").html()+'<br />' )
+}
+
+function reset() {
+	window.sec = 0;
+	$("#sec").html( '00:00:00' );
+}
+
+function tick() {
+	sec++;
+	$("#sec").html( new Date(sec*1000).toUTCString().split(/ /)[4] );
+}
+
+
+</script>
+		
+	</head>
+	<body>
+	<div class="wrapper">
+		<div class="row">
+			<div class="col col-12">
+
+
+				<div style="height: 1vw;" >&nbsp;</div>
+				<center>
+					
+					
+					
+					<div id="sec" >00:00:00</div>
+					<button id="start" onclick="start() ">Старт</button>
+					<button id="stop"  onclick="stop()  ">Запомнить</button>
+					<button id="reset" onclick="reset() ">Сброс</button>
+					<div id="secs">...</div>
+				</center>
