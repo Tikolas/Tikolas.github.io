@@ -1,0 +1,93 @@
+<head>
+<title>Карточки стим быстро</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<style>
+a{
+font-size: 30px;
+}
+</style>
+</head>
+<a>1 карточка</a><a style="float:right">3 карточки</a>
+<br>
+<textarea style="float:left" id="steam1" rows="5" cols="70">
+// Execute this on http://store.steampowered.com/explore/
+
+var GenerateQueue = function( queueNumber )
+{
+console.log( 'Queue #' + ++queueNumber );
+
+jQuery.post( 'https://store.steampowered.com/explore/generatenewdiscoveryqueue', { sessionid: g_sessionID, queuetype: 0 } ).done( function( data )
+{
+var requests = [];
+
+for( var i = 0; i < data.queue.length; i++ )
+{
+requests.push( jQuery.post( 'https://store.steampowered.com/app/10', { appid_to_clear_from_queue: data.queue[ i ], sessionid: g_sessionID } ) );
+}
+
+jQuery.when.apply( jQuery, requests ).done( function()
+{
+if( queueNumber < 1 )
+{
+GenerateQueue( queueNumber );
+}
+else
+{
+window.location.reload();
+}
+} );
+} );
+};
+
+GenerateQueue( 0 );
+</textarea>
+<script>
+(function(){
+    new Clipboard('#copy-butto');
+})();
+</script>
+<button style="float:left" class="button" id="copy-butto" data-clipboard-target="#steam1">Copy</button>
+<textarea style="float:right" id="steam2" rows="5" cols="70">
+// Execute this on http://store.steampowered.com/explore/
+
+var GenerateQueue = function( queueNumber )
+{
+console.log( 'Queue #' + ++queueNumber );
+
+jQuery.post( 'https://store.steampowered.com/explore/generatenewdiscoveryqueue', { sessionid: g_sessionID, queuetype: 0 } ).done( function( data )
+{
+var requests = [];
+
+for( var i = 0; i < data.queue.length; i++ )
+{
+requests.push( jQuery.post( 'https://store.steampowered.com/app/10', { appid_to_clear_from_queue: data.queue[ i ], sessionid: g_sessionID } ) );
+}
+
+jQuery.when.apply( jQuery, requests ).done( function()
+{
+if( queueNumber < 3 )
+{
+GenerateQueue( queueNumber );
+}
+else
+{
+window.location.reload();
+}
+} );
+} );
+};
+
+GenerateQueue( 0 );
+</textarea>
+<script>
+(function(){
+    new Clipboard('#copy-button');
+})();
+</script>
+<button style="float:right" class="button" id="copy-butto" data-clipboard-target="#steam2">Copy</button>
+<br><br><br><br><br>
+<a>1 карточка</a><a style="float:right">3 карточки</a>
+<center>
+<a href="https://store.steampowered.com/explore" target="_blank"> Сюда в конcоль</a>
+<center><br>
+<a href="https://store.steampowered.com/points/shop" target="_blank"> Стикеры</a>

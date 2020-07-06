@@ -1,36 +1,398 @@
 <!DOCTYPE html>
 <html class="UTF" lang="ru-RU">
  <head>
- 
+ <!--clickboard-->
+ <!--clickboard-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+ <!--1-->
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<!--1-->
+ <script type="text/javascript">
+ $(document).ready(function(){
+    $("#menu").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+});
+</script>
+ <!--1-->
+ <!--jsb-->
+ <script type="text/javascript">
+function copyit(theField) {
+var tempval=eval("document."+theField)
+tempval.focus()
+tempval.select()
+therange=tempval.createTextRange()
+therange.execCommand("Copy")
+}
+</script>
+<!--taga-->
+ <style>
+ a{
+ font-size: 30px
+ }
+ </style>
+ <!--taga-->
+ <!--leftright-->
+<style> 
+p[name="leftstr"]{ 
+float: left; 
+} 
+p[name="rightstr"] { 
+float: right; 
+} 
+</style> 
+<!--leftright-->
 </head>
 <body>
 <center><hr></hr>
-
-<a style="font-size: 30px"><h1>Коды в html</h1><hr></hr></a>
+<a><h1>Коды в html</h1><hr></hr></a>
 </center>
-
-<a id="razdel"> ТЕКСТ </a>
-
-
-
 </body>
 
  <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <!--http://htmlbook.ru/samhtml/yakorya http://inetmkt.ru/web-disain/yakorya-html http://tehnopost.info/html/10-yakor-ankor-na-veb-stranice.html#kod_yakora-->
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <!--http://htmlbook.ru/samhtml/yakorya http://inetmkt.ru/web-disain/yakorya-html http://tehnopost.info/html/10-yakor-ankor-na-veb-stranice.html#kod_yakora https://fooobar.com/questions/51556/can-i-apply-a-css-style-to-an-element-name http://blogprogram.ru/selektory-css-po-atributu-imeni/ https://gigabaza.ru/doc/88726.html -->
  </head>
- <body>
-  <p><a href="#bottom">Перейти к нижней части текста</a></p>
-  </body>
+ <div id="yak1"></div>
+ <a> Якорь </a>
+ 
 
 
- <body>
-  <p><a name="top"></a></p>
-  <p>...</p>
-  
-   
-  <p><a href="#top">Наверх</a></p>
- </body>
+<form name="it"><p name="rightstr">1500 это время, div id это куда вас кинет,  </p>
+<textarea name="komanda1" rows="10" cols="100">
+<div id="yak1"></div>
+
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+ 
+ <script type="text/javascript">
+ $(document).ready(function(){
+    $("#menu").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+});
+</script>
+
+<nav id="menu">
+    <ul>
+        <li><a href="#yak1">Ссылка на якорь 1</a></li>
+        <li><a href="#yak2">Ссылка на якорь 2</a></li>
+        <li><a href="#yak3">Ссылка на якорь 3</a></li>
+        <li><a href="#yak4">Ссылка на якорь 4</a></li>
+    </ul>
+</nav>
+ 
+ 
+</textarea>
+<input onclick="copyit('it.komanda1')" type="button" value="Выделить">
+
+<br><a> Фон в head </a><br><p name="rightstr">Просто фон  </p>
+<form name="it">
+<textarea name="komanda2" rows="7" cols="100">
+<style>
+body{
+background-image: url(https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Free-Dark-Background-Images-1920x1080-PIC-WPD0013497.jpg)
+}
+</style>
+</textarea>
+<input onclick="copyit('it.komanda2')" type="button" value="Выделить">
 
 
-<p><a name="bottom">KS</a></p>
-</html>
+
+<p style="border:5px #330099  solid;width:100px;">
+текст текст текст текст</p>
+<!--test-->
+ <xmp style="border:5px #330099  solid;width:500px;">
+ <br><a> ДРУГОЕ </a><br>
+<form name="it">
+<textarea name="komanda2" rows="10" cols="100">
+ТУТ ТЕКСТ
+</textarea>
+<input onclick="copyit('it.komanda2')" type="button" value="Выделить">
+ </xmp>
+<!--test-->
+<body> 
+ <!--<br><a> Лево.право.в.одной.строке </a><br><p name="rightstr" style="border:3px #330099  solid;width:120px; height:100px;">
+Код leftstr можно убрать:возможно работать не будет </p>-->
+<!--test-->
+ <br><a> Лево.право.в.одной.строке </a><br><p name="rightstr">
+Код leftstr можно убрать:возможно работать не будет </p>
+<form name="it">
+<textarea name="komanda3" rows="10" cols="100">
+<style> 
+p[name="leftstr"]{ 
+float: left; 
+} 
+p[name="rightstr"]{ 
+float: right; 
+} 
+</style> 
+<!--new
+<style>
+#down{
+margin-top:40px;
+}
+#left{
+float:left
+}
+#right{
+float:right
+}
+</style>
+<p id="down"></p>
+<a id="left">left</a><a id="right">right</a>
+<!--new-->
+<p name="leftstr">слева</p> 
+<p name="rightstr">справа</p>  
+<hr>
+
+<br>
+<p name="leftstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ left</p>
+<p name="rightstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ rgh</p>
+<br><hr>
+<p name="leftstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ left</p>
+<p name="rightstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ rgh</p>
+<br><hr>
+<p name="leftstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ left</p>
+<p name="rightstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ rgh</p>
+<br><hr>
+<p name="leftstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ left</p>
+<p name="rightstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ rgh</p>
+<br><hr>
+<p name="leftstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ left</p>
+<p name="rightstr" style="border:5px #00B344  solid;width:100px;">ВАЖНОЕ rgh</p>
+<br><hr>
+<a href=""><p name="leftstr">слева</p></a> 
+<a href=""><p name="rightstr">справа</p></a>
+</textarea>
+<input onclick="copyit('it.komanda3')" type="button" value="Выделить">
+</p>
+
+
+<form name="it">
+<textarea name="komanda4" rows="5" cols="10">
+ТУТ ТЕКСТ
+</textarea>
+<input onclick="copyit('it.komanda4')" type="button" value="Выделить">
+
+<br><a> Script на кнопку </a><a style="float:right"> Код html,закрыть textarea </a><a style="margin-left:365px"> Textarea </a>
+<br>
+
+<form name="it">
+<textarea id="secret" name="komanda5" style="float:right"rows="5" cols="70">
+<form name="it">
+<textarea name="" rows="5" cols="70">
+
+<textarea>
+<input onclick="copyit('it.komanda2')" type="button" value="Выделить"></input>
+
+</textarea><input onclick="copyit('it.komanda6')" type="button" value="Выделить"><!---->
+<form name="it">
+<textarea id="first" name="komanda6" style="float:left"rows="5" cols="70">
+<script type="text/javascript">
+function copyit(theField) {
+var tempval=eval("document."+theField)
+tempval.focus()
+tempval.select()
+therange=tempval.createTextRange()
+therange.execCommand("Copy")
+}
+</script>
+</textarea>
+<input style="float:right" onclick="copyit('it.komanda5')" type="button" value="Выделить">
+
+
+</form>
+<!--copy-->
+<script>
+(function(){
+    new Clipboard('#copy-button');
+})();
+</script>
+<button class="button" id="copy-button" data-clipboard-target="#first">Copy</button>
+<!--copy-->
+<script>
+(function(){
+    new Clipboard('#copy-butto');
+})();
+</script>
+<button style="float:right" class="button" id="copy-butto" data-clipboard-target="#secret">Copy</button>
+<!--copy-->
+
+<!---->
+<body>
+<!--analyt-->
+<style>
+#down{
+margin-top:40px;
+}
+#left{
+float:left
+}
+#right{
+float:right
+}
+</style>
+<br><a style="float:right"> Яндекс поиск на сайте </a><a style="float:left"> Гугл мой сайт </a>
+<br>
+<p id="down"></p>
+<br>
+<form id="left" action="http://google.com/search" target="_blank">
+  <input type="search" name="q">
+  <input type="hidden" name="as_sitesearch" value="tikolas.github.io">
+  <input type="submit" value="Найти">
+</form>
+<!--Поиск в яндексе-->
+<form id="right" action="http://yandex.ru/search" target="_blank">
+  <input type="search" name="text">
+  <input type="submit" value="Найти">
+</form>
+<!--analyt-->
+</body>
+<center>New</center>
+<body>
+<br><br>
+<a id="left">Left</a><a id="right">right</a>
+<br><br>
+
+<textarea id="qq" rows="5" cols="70" style="float:left">
+left
+</textarea>
+
+<script>
+(function(){
+    new Clipboard('#copyleft');
+})();
+</script>
+<button style="float:left" class="button" id="copyleft" data-clipboard-target="#qq">Copy</button>
+<textarea id="qw" rows="5" cols="70" style="float:right">
+right
+</textarea>
+<script>
+(function(){
+    new Clipboard('#copyright');
+})();
+</script>
+<button style="float:right" class="button" id="copyright" data-clipboard-target="#qw">Copy</button>
+<p id="down"></p>
+<br>
+<center>New</center>
+</body>
+<body>
+<br><br>
+<a id="left">Left</a><a id="right">right</a>
+<br><br>
+
+<textarea id="cop1" rows="5" cols="70" style="float:left">
+left
+</textarea>
+
+<script>
+(function(){
+    new Clipboard('#copy1');
+})();
+</script>
+<button style="float:left" class="button" id="copy1" data-clipboard-target="#cop1">Copy</button>
+<textarea id="cop2" rows="5" cols="70" style="float:right">
+right
+</textarea>
+<script>
+(function(){
+    new Clipboard('#copy2');
+})();
+</script>
+<button style="float:right" class="button" id="copy2" data-clipboard-target="#cop2">Copy</button>
+</body>
+<body>
+<p id="down"></p>
+<center>New</center>
+<br><br>
+<a id="left">Left</a><a id="right">right</a>
+<br><br>
+
+<textarea id="qq" rows="5" cols="70" style="float:left">
+left
+</textarea>
+
+<script>
+(function(){
+    new Clipboard('#copyleft');
+})();
+</script>
+<button style="float:left" class="button" id="copyleft" data-clipboard-target="#qq">Copy</button>
+<textarea id="qw" rows="5" cols="70" style="float:right">
+right
+</textarea>
+<script>
+(function(){
+    new Clipboard('#copyright');
+})();
+</script>
+<button style="float:right" class="button" id="copyright" data-clipboard-target="#qw">Copy</button>
+<p id="down"></p>
+<br>
+<center>New</center>
+</body>
+
+<body>
+<br><br>
+<a id="left">Left</a><a id="right">right</a>
+<br><br>
+
+<textarea id="qq" rows="5" cols="70" style="float:left">
+left
+</textarea>
+
+<script>
+(function(){
+    new Clipboard('#copyleft');
+})();
+</script>
+<button style="float:left" class="button" id="copyleft" data-clipboard-target="#qq">Copy</button>
+<textarea id="qw" rows="5" cols="70" style="float:right">
+right
+</textarea>
+<script>
+(function(){
+    new Clipboard('#copyright');
+})();
+</script>
+<button style="float:right" class="button" id="copyright" data-clipboard-target="#qw">Copy</button>
+<p id="down"></p>
+<br>
+<center>nEW</center>
+</body>
+<!--ideal-->
+<body>
+<br><br>
+<a id="left">Left</a><a id="right">right</a>
+<br><br>
+
+<textarea id="qq" rows="5" cols="70" style="float:left">
+left
+</textarea>
+
+<script>
+(function(){
+    new Clipboard('#copyleft');
+})();
+</script>
+<button style="float:left" class="button" id="copyleft" data-clipboard-target="#qq">Copy</button>
+<textarea id="qw" rows="5" cols="70" style="float:right">
+right
+</textarea>
+<script>
+(function(){
+    new Clipboard('#copyright');
+})();
+</script>
+<button style="float:right" class="button" id="copyright" data-clipboard-target="#qw">Copy</button>
+<p id="down"></p>
+<br>
+<center>New</center>
+</body>
+<!--ideal-->
