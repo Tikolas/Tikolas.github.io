@@ -1,3 +1,7 @@
+User-agent: *
+Sitemap: https://tikolas.github.io/sitemap.xml
+
+
 User-agent: YandexBot
 Disallow: /sitedirobil*
 Disallow: /admon*/
@@ -5,12 +9,5 @@ Disallow: /admon/lo/index
 Allow: /admon/lo
 Allow: /mead
 
-User-agent: Googlebot
-Disallow: /sitedirobil*
-Disallow: /admon*/
-Disallow: /admon/lo/index
-Allow: /admon/lo
-Allow: /mead
 
-Sitemap: https://tikolas.github.io/sitemap.xml
 Host: https://tikolas.github.io

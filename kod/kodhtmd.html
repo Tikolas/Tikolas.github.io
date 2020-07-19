@@ -1,5 +1,5 @@
 <head>
-<title>Коды html</title>
+<title>Коды html(js)</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <style>
 #down{
@@ -21,7 +21,7 @@ float:right
 
 <body>
 <center><hr></hr>
-<a>Коды в html<hr></hr></a>
+<a>Коды в html(js)<hr></hr></a>
 </center>
 </body>
 
@@ -70,16 +70,16 @@ float:right
 <button style="float:right" class="button" id="copyright" data-clipboard-target="#qw">Copy</button>
 <p id="down"></p>
 <br>
-<center>New</center>
+<center>ЯКОРЬ</center>
 </body>
 
 <body>
 <br><br>
-<a id="left">Left</a><a id="right">right</a>
+<a id="left">Source кнопки Copy</a><a id="right">Код Copy</a>
 <br><br>
 
 <textarea id="cop1" rows="5" cols="70" style="float:left">
-left
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 </textarea>
 
 <script>
@@ -89,7 +89,14 @@ left
 </script>
 <button style="float:left" class="button" id="copy1" data-clipboard-target="#cop1">Copy</button>
 <textarea id="cop2" rows="5" cols="70" style="float:right">
-right
+<script>
+(function(){
+    new Clipboard('#copy1');
+})();
+</script>
+<button class="button" id="copy1" data-clipboard-target="#textarea">Copy</button>
+<!--#textarea это id для textarea <textarea id="textarea">-->
+<!--copy1 меняйте во 2 случаях на другое-->
 </textarea>
 <script>
 (function(){
@@ -99,7 +106,7 @@ right
 <button style="float:right" class="button" id="copy2" data-clipboard-target="#cop2">Copy</button>
 <p id="down"></p>
 <br>
-<center>New</center>
+<center>Кнопка Copy</center>
 </body>
 
 <body>

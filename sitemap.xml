@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
  <url>
 <loc>https://tikolas.github.io/</loc>
-<lastmod>2020-06-27</lastmod>
+<lastmod>2020-07-07</lastmod>
 <priority>1.00</priority>
 </url>
 <url>
 <loc>https://tikolas.github.io/mead/</loc>
-<lastmod>2020-06-27</lastmod>
+<lastmod>2020-07-07</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
 <loc>https://tikolas.github.io/admon/lo/prostosilka</loc>
-<lastmod>2020-06-27</lastmod>
+<lastmod>2020-07-07</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
 <loc>https://tikolas.github.io/admon/lo/infoprostosilka</loc>
-<lastmod>2020-06-27</lastmod>
+<lastmod>2020-07-07</lastmod>
 <priority>0.5</priority>
 </url>
 </urlset>
