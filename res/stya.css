@@ -1,0 +1,8 @@
+﻿.l{float:left}
+.r{float:right}
+img.goi{max-width: 100%;height: auto;}
+#ki:hover{border:2px black solid}
+.stop{margin-left:30px}
+.str, .str2{background-color:black;color:white;font-size:20px;margin-left:10px;padding:5px;padding-left:10px;padding-right:10px}
+.str2{margin:0px}.str:hover,.str2:hover,.act{border:1px white solid}
+.act{background:linear-gradient(#333333, black);font-family:monospace}
