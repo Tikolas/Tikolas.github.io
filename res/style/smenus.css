@@ -43,5 +43,5 @@
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 #ams{border:2px black solid;background-image:url(/res/image/gfd.gif);max-width: 100%}
-#oks{border-bottom:1px green solid;border-radius:0px 0px 40px 0px}
+#oks,.oks{border-bottom:1px green solid;border-radius:0px 0px 40px 0px}
 .don:hover{background:url(/res/image/vbh.gif)} .meb{padding:5px;padding-right:60px;font-size:20px}

@@ -6,8 +6,12 @@ User-agent: YandexBot
 Disallow: /sitedirobil*
 Disallow: /admon*/
 Disallow: /admon/lo/index
+Disallow: /res/style
+Disallow: /res/image
+Disallow: /res/script
 Allow: /admon/lo
 Allow: /mead
+Allow: /res
 
 
 Host: https://tikolas.github.io
