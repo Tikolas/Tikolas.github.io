@@ -56,5 +56,5 @@
  			text-decoration: none;
             color: white;
  		}
-.ber{border-top:2px black solid;border-bottom:2px black solid}		
+.ber{border-top:2px black solid;border-bottom:2px black solid}.r{float:right}		
 .gra{border-top:2px black solid;border-bottom:2px black solid;margin-bottom:4px;background: linear-gradient(180deg, #FFA3EA, #ABA2FB)}
