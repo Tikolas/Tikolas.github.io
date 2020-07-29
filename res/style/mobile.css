@@ -23,5 +23,5 @@ to {left: calc(100% - 90px); }}
 .op .bar {position:relative; display:none; left:0; top:100%;}
 .op:hover .bar {display:block;}
 #mns{font-size:24px;background-color:#3498DB;color:white;padding:2px}#mns:hover{background-color: #2980B9;}#f12{font-size:10px}
-.dem{color:black;margin-left:10px;background:url(image/gfd.gif)}.ops{animation: go-left-right .5s infinite alternate;position:absolute}
+.dem{color:black;margin-left:10px;background:url(/res/image/gfd.gif)}.ops{animation: go-left-right .5s infinite alternate;position:absolute}
 .bar{padding: 10px 5px 10px 45px;margin-bottom:4px;text-decoration: none;margin-top:3px;box-shadow: 0px 0px 3px 1px black;background-color:white}
