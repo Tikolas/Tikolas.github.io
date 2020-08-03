@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Кликер</title><script src="jquery-2.1.4.min.js"></script><link rel="stylesheet" type="text/css" href="mobile.css"/>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" type="text/css" href="menu.css"/>
+  <link rel="stylesheet" type="text/css" href="smenus.css"/><script src="smenus.js"></script>
+  <body>
+  <style>
+  img.goi{max-width: 100%;height: auto;}
+.del { display: none; }
+.del:not(:checked) + label + * { display: none; }
+.del:not(:checked) + label,
+.del:checked + label {
+  display: inline-block;
+  padding: 2px 10px;border-radius: 2px;color: #fff;background: #4e6473;cursor: pointer;}.del:checked + label {background: #e36443}
+  #oif{color:red;font-size:30px}.pos:active{background-color:green;border-radius:10%;opacity:0.8;}
+</style>
+  <h2>Победи босса</h2>
+    <h1 id="score">0<img src="lol.png"></h1>
+    <h3 id="level">Ваш уровень: 1</h3>
+    <!--<button id="clickbtn" onclick="clickBtn()">+$</button>
+	<button id="clickbtn" onclick="clickBtn2()">-$</button>-->
+	<center><img class="pos goi" src="monster.png" onclick="clickBtn2()"></img></center>
+	<input type="checkbox" id="raz" class="del" checked="checked"/><label for="raz" class="del">Правила</label>
+	<div id="oif">Надо достичь 2hp(Уровень при выходе сбрасывается)</div>
+	<div style="float:left" class="dropdown">
+<button onclick="myFunction()" class="dropbtn btn-primary meb">Прокачка</button>
+<div id="myDropdown" class="dropdown-content">
+<br><input type="button" value="+100hp" onclick="update()">
+    <br><input type="button" value="Уровень 2 +150hp" onclick="update1()">
+    <br><input type="button" value="Прокачать на 3 уровня|-250$" onclick="update2()">
+</div></div><br>
+<div style="position:absolute;" class="r op">
+<a id="mns">Upgrade</a>
+<input class="bar" type="button" value="+100hp" onclick="update()">
+    <input class="bar" type="button" value="Уровень 2 +150hp" onclick="update1()">
+   <input class="bar" type="button" value="+3 Уровня -250hp " onclick="update2()">
+    <input class="bar" type="button" value="+10 Уровней -500hp" onclick="update3()">
+</div>
+    <br><input type="button" value="Прокачать на 1 уровень|-100$" onclick="update()">
+    <br><input type="button" value="Прокачать на 2 уровня|-150$" onclick="update1()">
+    <br><input type="button" value="Прокачать на 3 уровня|-250$" onclick="update2()">
+    <br><input type="button" value="Прокачать на 10 уровней|-500$" onclick="update3()">
+	<br><input type="button" value="Прокачать на 10000 уровней|-1000$" onclick="update4()">
+	<br><input type="button" value="Прокачать на 1 уровней|-1$" onclick="update5()">
+    <br><input type="button" value="Автокликер|-10000$" onclick="auto()">
+	<br><input type="button" value="Автокликер|-1000$" onclick="auto4()">
+    <br><input type="button" value="Прокачаться на свой уровень" onclick="dialog()">
+	<button onclick="localStorage.removeItem('score');score=''">Очистить</button>
+	</body>
+	<script src="script.js"></script>

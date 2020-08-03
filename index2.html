@@ -1,32 +1,66 @@
-<!DOCTYPE html>
-<html class="UTF" lang="ru-RU">
- <head>
-<!-- <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">-->
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(57569611, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+<html>
+<head>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+  $('#rex').click(function() {
+    $('#test').html(+$('#test').html()+1);
+  });
+});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/57569611" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-   <link rel="stylesheet" href="in.css">
-     <!--<style type="text/css">
-      h1{
-      color:blue
-      }
-      </style>-->
-</head><h1>
-<iframe id="s" frameborder="no" scrolling="no" width="150" height="280" src="https://yandex.ru/time/widget/?geoid=202&lang=ru&layout=vert&type=digital&face=serif"></iframe>
-<body><p>
-Buuu
+<style>
+#rex {
+  border: 1px;width: 100px;height: 100px;
+}
+</style>
+</head>
+<body>
+<h1>0</h1>
+<div id="rex">Click Me</div>
+<div id="test">0</div>
 
-</body></p>
+<textarea style="width:200px; height: 60px;" id="area" placeholder="Напишите сообщение здесь"></textarea>
 <br>
-http://shpargalkablog.ru/2011/06/forma-poiska-po-saitu.html?text=
+<button onclick="localStorage.removeItem('area');area.value=''">Очистить</button>
+<script>
+    area.value = localStorage.getItem('.timers');
+    area.oninput = () => {
+      localStorage.setItem('.timers', area.value)
+    };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<script>
+price = +localStorage.getItem('.timers');
+if (!(!isNaN(parseFloat(price)) && isFinite(price))) price = 0
+window.onunload = () => {
+  localStorage.setItem('.timers', price)};
+  teg();
+function teg () {
+  document.getElementsByTagName("h1")[0].firstChild.data = price + "руб";
+}
+var price = 0.0000; 
+var timer = setInterval(function () {
+  price += 0.001; 
+  $('.timers').text(numeral(price).format('0.00000') + 'руб');
+}, 1000);
+
+var timer = 120;
+var interval = setInterval(function()
+{
+  $('.time').text(--timer);
+  if (timer === 0) clearInterval(interval);
+}, 1000);
+</script>
+<div class="timers">0</div>
+<div class="time">120</div>
+<xmp>
+var price = 100; 
+var timer = setInterval(function () {
+  price += 0.01; 
+  $('.timers').text(numeral(price).format('0.0[.]00') + 'руб');
+}, 1000);
+<div class="timers">0</div>
+</xmp>
+</body>
+</html>
