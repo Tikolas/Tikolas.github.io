@@ -1,16 +1,13 @@
 User-agent: *
-Sitemap: https://tikolas.github.io/sitemap.xml
-
-
-User-agent: YandexBot
-Disallow: /sitedirobil*
 Disallow: /admon*/
 Disallow: /admon/lo/index
 Disallow: /res/style
 Disallow: /res/image
 Disallow: /res/script
+Disallow: /res/index
 Allow: /admon/lo
+Allow: /res/
 Allow: /res
 
-
+Sitemap: https://tikolas.github.io/sitemap.xml
 Host: https://tikolas.github.io

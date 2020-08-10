@@ -14,3 +14,7 @@ window.onclick = function(event) {
     }
   }
 }
+//Add
+function add(){document.getElementById("add").innerHTML = '';}
+//New
+function doc(){document.write('')}
