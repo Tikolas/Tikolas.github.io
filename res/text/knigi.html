@@ -4,6 +4,8 @@
  <meta name="description" content=""/>
 <link rel="stylesheet" type="text/css" href="/res/style/style.css" />
 <link rel="stylesheet" type="text/css" href="/res/style/swes.css" />
+<link rel="stylesheet"type="text/css" href="/res/style/menu.css"/>
+<link rel="stylesheet"type="text/css" href="/res/style/mobile.css"/>
 <link rel="stylesheet" type="text/css" href="/res/style/smenus.css" /><script src="/res/script/smenus.js"></script>
 <style>img#goi{max-width: 100%;height: auto;}</style>
 <style>#ki:hover{border:2px black solid}.stop{margin-left:30px}</style><style>div.ki{border:2px black solid;background-color:grey;width:50%;padding:2px;padding-left:130px;}</style><style>div.ki:before{top:0;left:0;width:40%;border-top:1px solid #000;content:"";background-color:red}</style>
@@ -11,8 +13,8 @@
 .str, .str2{background-color:black;color:white;font-size:20px;margin-left:10px;padding:5px;padding-left:10px;padding-right:10px}.str2{margin:0px}.str:hover,.str2:hover,.act{border:1px white solid}.act{background:linear-gradient(#333333, black);font-family:monospace}.ots{margin-bottom:19px}</style>
 </head>
 <body><div id="left"></div><div id="right"></div><center>
-<img src="/res/image/rwl.png" width="950" height="250"></img></center>
-<body><center style="margin-left:0px;"><div class="ki"></div>
+<img id="goi"src="/res/image/rwl.png" width="950" height="250"></img></center>
+<div class="header-pc"><body><center style="margin-left:0px;"><div class="ki"></div>
 <a href="Social" class="btn btn-primary" id="ki" style="float:right;padding:2px">Соц.Сети</a><p style="height: 39px;
 background: linear-gradient(180deg, #FFA3EA, #ABA2FB);margin:0px;width:60%"><a href="/res/index" id="ki" class="btn btn-primary">Главная</a>
 <a href="/res/file" style="margin-left:30px;" id="ki" class="btn btn-primary">Файлы</a>
@@ -28,7 +30,23 @@ background: linear-gradient(180deg, #FFA3EA, #ABA2FB);margin:0px;width:60%"><a h
 <a id="ams">Книги</a>
 <a id="oks">овы</a>
 </div>
+</div></div>
+<div class="header-mobile">
+<!---->
+<div style="position:fixed" class="menu">
+<a class="menu" style="background-color:black;color:white;font-size:30px">>>></a>
+<span><a class="ber"href="/res/index"id="lin2">Главная</a>
+<a id="lin2"href="/res/file">Файлы</a><a class="ber"href="/res/sil"id="lin2">Ссылки</a><a class="gra"id="lin2">Тексты</a>
+</span></div>
+<div style="position:absolute;top: 50px;right:0;" class="r op">
+<a id="mns">Меню </a>
+<div href="file"class="bar gra"><a class="progress" id="f12">></a>Персонажи</div>
+<div href="/res/text/suchet"class="bar">Сюжеты</div>
+<a href="/res/Social" class="bar dem">Соц.Сети</a>
+<a class="bar dem" href="https://vk.com/im?sel=-194286958">Отзыв<div style="font-size:10px">о сайте</div></a>
 </div>
+</div>
+<!---->
 <center>
 <div id="wr"><h1>
 Книги
@@ -37,7 +55,7 @@ background: linear-gradient(180deg, #FFA3EA, #ABA2FB);margin:0px;width:60%"><a h
 </center>
 </body>
 <body>
-<img style="float:right" class="uis" iframe="" height="50"width="50">
+<img style="float:right"class="uis"iframe=""height="50"width="50">
 <center>
 <h2 id="wr1"></h2>
 <!---->
