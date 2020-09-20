@@ -111,11 +111,38 @@ float:right
 
 <body>
 <br><br>
-<a id="left">Left</a><a id="right">right</a>
+<a id="left">InnerHtml</a><a id="right">document.write</a>
 <br><br>
 
 <textarea id="cop3" rows="5" cols="70" style="float:left">
-left
+<Script>
+function menu(){
+document.getElementById("menv").innerHTML = '<h1 onclick="close()"id="menvv">МЕНЮ</h1><br><h2>1</h2><br><h2>2</h2>'}
+function close(){
+document.getElementById("menvv").innerHTML = '<h1 >МЕНЮ.l</h1><br><h2>1</h2><br><h2>2</h2>'}
+//Открывает закрывает
+window.onload = function () {
+    var kods = document.getElementById('753');
+    kods.onclick = function() {
+        if (this.innerHTML=='754') this.innerHTML = '543';
+        else this.innerHTML = '754';
+        return false;}
+		
+		 var more = document.getElementById('453');
+    more.onclick = function() {
+        if (this.innerHTML=='<style>body{background:#FFA040}</style><h2>On</h2>') this.innerHTML = '<style>body{background-color:white}</style><h1>Off</h1>';
+        else this.innerHTML = '<style>body{background:#FFA040}</style><h2>On</h2>';
+        return false;
+    }
+	
+	var hiu = document.getElementById('yut');
+    hiu.onclick = function() {
+        if (this.innerHTML=='<a id="otv">Внимание!</a>') this.innerHTML = '<a><div id="err"><a id="otv">Внимание!</a> тоактоаткотаоктаоткаоткутштукшптушкп iul ui luil uil uil iu lui ту</div></a>';
+        else this.innerHTML = '<a id="otv">Внимание!</a>';
+        return false;
+    }
+}
+</Script>
 </textarea>
 
 <script>
@@ -125,7 +152,8 @@ left
 </script>
 <button style="float:left" class="button" id="copy3" data-clipboard-target="#cop3">Copy</button>
 <textarea id="cop4" rows="5" cols="70" style="float:right">
-right
+function mio(){
+document.write('<link rel="stylesheet"href="in.css"><style>a{text-decoration:none}</style><a href=""><h1><<<</h1></a>')}
 </textarea>
 <script>
 (function(){
