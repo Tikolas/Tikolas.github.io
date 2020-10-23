@@ -1,6 +1,6 @@
 <html>
 <head>
-<script type="text/javascript" src="jquery.cookie.js"></script>
+<!--<script type="text/javascript" src="jquery.cookie.js"></script>-->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" language="javascript">
 $(document).ready(function() {
@@ -41,8 +41,8 @@ function teg () {
 }
 var price = 0.0000; 
 var timer = setInterval(function () {
-  price += 0.001; 
-  $('.timers').text(numeral(price).format('0.00000') + 'руб');
+  price += 0.000001; 
+  $('.timers').text(numeral(price).format('0.000000') + 'руб');
 }, 1000);
 
 var timer = 120;
@@ -52,7 +52,7 @@ var interval = setInterval(function()
   if (timer === 0) clearInterval(interval);
 }, 1000);
 </script>
-<div class="timers">0</div>
+<div class="timers"id="vess">0</div>
 <div class="time">120</div>
 <xmp>
 var price = 100; 

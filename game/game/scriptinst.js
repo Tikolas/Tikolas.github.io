@@ -26,8 +26,9 @@ function osc(){
 //Прокачка
 function update() {
   score = score + updating;
-  teg();
-}
+teg();
+};
+
 function update1() {
   score = score + 150;
   updating = 2;
@@ -49,21 +50,7 @@ function update3() {
   if1();
   level();
 }
-var koo = 100000-score;
-function update4() {
-  if(score > 100000){score = score - 100000;
-  call += 1;}else{alert("Не хватает " + koo + " Ksc");}
-  teg();
-  level();
-  min();
-}
-var ko = 10000-score;
-function update5() {
-  if(score > 10000){score = score - 10000;
-  updating += 1;}else{alert("Не хватает " + ko + " Ksc");}
-  teg();
-  level();
-}
+
 //ограничение кредита
 function opa(){
 	if(score>1000){score=0;}
