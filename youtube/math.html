@@ -1,0 +1,92 @@
+<html>
+<head><title>math</title><style>body{text-align:center}</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>window.onload = function() {axp();edd()}</script></head>
+<body><style>input{font-size:23px;}</style><br><br>
+a=<input id="a"placeholder=""onkeyup="axp();edd()"value="1 6 -2"/><br>
+b=<input id="b"placeholder=""onkeyup="axp();edd()"value="3 0 -1"/><br>
+c=<input id="c"placeholder=""onkeyup="axp();edd()"value="1.5 -2 0"/><br>
+d=<input id="d"placeholder=""onkeyup="axp();edd()"value="-2 1 4"/><br>
+e=<input id="e"placeholder=""onkeyup="axp();edd()"/><br>
+f=<input id="f"placeholder=""onkeyup="axp();edd()"/><br><br><br>
+<input id="posy"placeholder="Пример"onkeyup="axp();edd()"value="a*b*c*d"/><br>
+<a id="otva"></a>
+<script>
+function axp(){
+var a = $('#a').val();
+var strings = a.split(' ');
+xa1 = strings[0];
+xa2 = strings[1];
+xa3 = strings[2];
+
+var b = $('#b').val();
+var bstr = b.split(' ');
+xb1 = bstr[0];
+xb2 = bstr[1];
+xb3 = bstr[2];
+
+var c = $('#c').val();
+var cstr = c.split(' ');
+xc1 = cstr[0];
+xc2 = cstr[1];
+xc3 = cstr[2];
+
+var d = $('#d').val();
+var dstr = d.split(' ');
+xd1 = dstr[0];
+xd2 = dstr[1];
+xd3 = dstr[2];
+
+var e = $('#e').val();
+var estr = e.split(' ');
+xe1 = estr[0];
+xe2 = estr[1];
+xe3 = estr[2];
+
+var f = $('#f').val();
+var fstr = f.split(' ');
+xf1 = fstr[0];
+xf2 = fstr[1];
+xf3 = fstr[2];
+
+var axx = $('#posy').val();
+var aaa1 = axx.split('a').join(xa1);
+var aaa2 = axx.split('a').join(xa2);
+var aaa3 = axx.split('a').join(xa3);
+
+var aaa1 = aaa1.split('b').join(xb1).split('c').join(xc1).split('d').join(xd1).split('e').join(xe1).split('f').join(xf1);
+var aaa2 = aaa2.split('b').join(xb2).split('c').join(xc2).split('d').join(xd2).split('e').join(xe2).split('f').join(xf2);
+var aaa3 = aaa3.split('b').join(xb3).split('c').join(xc3).split('d').join(xd3).split('e').join(xe3).split('f').join(xf3);
+
+var aaa1 = aaa1.split('--').join('+');
+var aaa2 = aaa2.split('--').join('+');
+var aaa3 = aaa3.split('--').join('+');
+
+x = eval(aaa1);
+y = eval(aaa2);
+z = eval(aaa3);
+
+$('#otva').html("<h2>x: "+aaa1+"= "+x+"<br>y: "+aaa2+"= "+y+"<br>z: "+aaa3+"= "+z+"</h2>");
+
+
+}
+function edd(){
+var xyz = $('#xyz').val();
+
+xx = xyz.split('x').join(x).split('y').join(y).split('z').join(z);
+tt = eval(xx);
+$('#otvx').html(xx+"= "+tt);
+}
+function f1(){$('#posy').val('(b*2)-a');axp();edd()}
+function f5(){$('#posy').val('(b-a)*(b-a)');axp();edd()}
+</script>
+<input id="xyz"placeholder=""onkeyup="edd()"value="x+y+z"/><br><br>
+<h2 id="otvx"></h2>
+<a onclick="f1()">f1</a>
+<a onclick="f5()">f5</a>
+</body>
+</html>
+<!--
+https://qna.habr.com/q/317101
+https://gist.github.com/lsauer/2757250
+https://www.cyberforum.ru/javascript-beginners/thread2486808.html-->

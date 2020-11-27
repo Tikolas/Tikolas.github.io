@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="description" content="Транслит текста. Изменение русских букв на английские."/>
+<meta name="keywords" content="Chedaro, чедаро, честный, chedaro, translit">
+  <title>Уничтожитель</title><style>p{border:2px grey solid;font-size:20px;}input{font-size:40px}</style></head>
+<form name="form" method="post">
+Название:<br>
+<textarea name="name" type="text" id="name" onKeyUp="translit()"cols="109"rows="3"></textarea><br>
+Вывод:<br>
+<textarea name="code" type="text" id="code"cols="109"rows="3"></textarea>
+<select id="js"name="js"onchange="translit();"><option value="0">HTML</option><option value="2">JS</option></select>
+</form>
+<script>
+js=0;
+function translit() {
+js=document.getElementById("js").value;
+var str = document.getElementById("name").value;
+link = str.replace(/>\s+/g, '>');
+if(js==2){link = str.replace(/\s+/g, '');link=link.split('function').join('function ').split('var').join('var ').split('const').join('const ').split('let').join('let ').split('return').join('return ');}
+document.getElementById("code").value = link;
+dlin=document.getElementById("code").value.length;
+dlina=document.getElementById("name").value.length;
+document.getElementById("tudam").innerHTML = "Было:"+dlina+"<br>Стало:"+dlin;
+}
+function destroy(){
+xq=document.getElementById("eto").value;
+xw=document.getElementById("zam").value;
+xe=document.getElementById("this").value;
+xr= xe.split(xq).join(xw);
+document.getElementById("tuda").value = xr;
+
+}
+</script>
+<a id="tudam"> </a>
+<p>
+Искать эти символы:<br>
+<input onKeyUp="destroy()"id="eto"/><br>
+Заменить этим:<br>
+<input onKeyUp="destroy()"id="zam"/><br>
+В этом тексте найти:<br>
+<textarea name="this" type="text" id="this" onKeyUp="destroy()"cols="109"rows="3"></textarea><br>
+Вывод и замена:<br>
+<textarea name="tuda" type="text" id="tuda" onKeyUp="destroy()"cols="109"rows="3"></textarea><br>
+</p>
+</body></html>
