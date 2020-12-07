@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-  <meta name="viewport" content="width=device-width, user-scalable=no">
+<html><head><title>Уничтожитель</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, user-scalable=no">
 <meta name="description" content="Транслит текста. Изменение русских букв на английские."/>
 <meta name="keywords" content="Chedaro, чедаро, честный, chedaro, translit">
-  <title>Уничтожитель</title><style>p{border:2px grey solid;font-size:20px;}input{font-size:40px}</style></head>
+<link rel="icon" href="/logo2.png" type="image/x-icon">
+<style>p{border:2px grey solid;font-size:20px;}input{font-size:40px}[name=on]{font-size:30px}</style></head>
 <form name="form" method="post">
 Название:<br>
 <textarea name="name" type="text" id="name" onKeyUp="translit()"cols="109"rows="3"></textarea><br>
@@ -29,18 +30,20 @@ xw=document.getElementById("zam").value;
 xe=document.getElementById("this").value;
 xr= xe.split(xq).join(xw);
 document.getElementById("tuda").value = xr;
-
+dmn=document.getElementById("this").value.length;
+dnm=document.getElementById("tuda").value.length;
+document.getElementById("ws").innerHTML = "<h4>Было:"+dmn+"</h4><br>Стало:"+dnm;
 }
 </script>
 <a id="tudam"> </a>
 <p>
 Искать эти символы:<br>
-<input onKeyUp="destroy()"id="eto"/><br>
+<textarea name="on"onKeyUp="destroy()"id="eto"></textarea><br>
 Заменить этим:<br>
-<input onKeyUp="destroy()"id="zam"/><br>
+<textarea name="on"onKeyUp="destroy()"id="zam"></textarea><br>
 В этом тексте найти:<br>
 <textarea name="this" type="text" id="this" onKeyUp="destroy()"cols="109"rows="3"></textarea><br>
 Вывод и замена:<br>
-<textarea name="tuda" type="text" id="tuda" onKeyUp="destroy()"cols="109"rows="3"></textarea><br>
+<textarea name="tuda" type="text" id="tuda" onKeyUp="destroy()"cols="109"rows="3"></textarea><br><a id="ws"> </a>
 </p>
 </body></html>

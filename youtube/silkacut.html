@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<html><head><title>Из текста в Ссылку</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
   <meta name="viewport" content="width=device-width, user-scalable=no">
 <meta name="description" content="Транслит текста. Изменение русских букв на английские."/>
-<meta name="keywords" content="Chedaro, чедаро, честный, chedaro, translit">
-  <title>Кликер</title></head>
+<meta name="keywords" content="Chedaro, чедаро, честный, chedaro, translit"></head>
 <form name="form" method="post">
 Название:<br>
 <textarea name="name" type="text" id="name" onKeyUp="translit()"cols="109"rows="3"></textarea><br>
 Код для URL:<br>
-<textarea name="code" type="text" id="code"cols="109"rows="3"></textarea>
-</form>
+<textarea name="code" type="text" id="code"cols="109"rows="3"></textarea></form>
 <script>
 function translit() {
     var str = document.getElementById("name").value;
