@@ -1,0 +1,47 @@
+<html><head><title>AES шифрование</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="description" content="Шифрование на AES. Открытый код."/>
+<meta name="keywords" content="Chedaro, чедаро, честный, chedaro, шифрование, аес, aes, опен соурс,">
+<link rel="icon" href="/logo2.png" type="image/x-icon">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script>
+function translit() {
+var str = document.getElementById("name").value;
+var pss = document.getElementById("pass").value;
+
+var encrypted = CryptoJS.AES.encrypt(str, pss);
+var simbv2 = document.getElementById("name").value.length;
+var simbv = document.getElementById("res").value.length;
+document.getElementById("simb").innerHTML= simbv; 
+document.getElementById("simb2").innerHTML= simbv2; 
+document.getElementById("res").value = encrypted;
+}
+function resso() {
+var rsa = document.getElementById("code").value;
+var pss = document.getElementById("pass").value;
+var decrypted = CryptoJS.AES.decrypt(rsa, pss);
+document.getElementById("res2").value  = decrypted.toString(CryptoJS.enc.Utf8);
+}
+function aes(ai){
+var f = "";
+for (var c = 0; c < ai.length; c++) {
+f += String.fromCharCode(ai.charCodeAt(c) ^ (1 + (ai.length - c) % 32))
+}
+return f}
+</script>
+</head>
+<body>
+Пароль:<br>
+<textarea name="name" type="text" id="pass" onKeyUp="translit();resso()"cols="109"rows="3"></textarea><br>
+Зашифровать:<br>
+<textarea name="name" type="text" id="name" onKeyUp="translit()"cols="109"rows="3"></textarea><a id="simb2"> </a><br>
+Расшифровать:<br>
+<textarea name="code" type="text" id="code"onKeyUp="resso()"cols="109"rows="3"></textarea><br>
+Результат:<br>
+<textarea name="code" type="text" id="res"cols="109"rows="3"></textarea><a id="simb"> </a><br>
+Результат2:<br>
+<textarea name="code" type="text" id="res2"cols="109"rows="3"></textarea><br>
+</body>
+
+</html>
