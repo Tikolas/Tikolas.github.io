@@ -74,15 +74,21 @@ document.getElementById("code").value = link;
 
 
 </script>
-Ввод:<br>
+<div id="id">
+<h3>Ввод:</h3>
 <textarea name="name" type="text" id="name" onKeyUp="translit()"cols="109"rows="3"></textarea><br>
-Вывод:<br>
-<textarea name="code" type="text" id="code"cols="109"rows="3"></textarea></form>
+<h3>Вывод:</h3>
+<textarea name="code" type="text" id="code"cols="109"rows="3"></textarea></div>
 </head>
 <body>
 <!--https://seogift.ru/tools/zashifrovka-html-v-kod-javascript/-->
 </body>
 <style>
+#id{text-align: center;padding: 5px 20px 20px 20px;}h3{margin-top:6px}
+@media (max-width: 850px)
+{
+textarea{max-width:100%;width:auto;}
+}
 
 </style>
 

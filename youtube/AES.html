@@ -31,17 +31,46 @@ f += String.fromCharCode(ai.charCodeAt(c) ^ (1 + (ai.length - c) % 32))
 return f}
 </script>
 </head>
-<body>
-Пароль:<br>
+<body><div id="id">
+<h3>Пароль:</h3>
 <textarea name="name" type="text" id="pass" onKeyUp="translit();resso()"cols="109"rows="3"></textarea><br>
-Зашифровать:<br>
+<h3>Зашифровать:</h3>
 <textarea name="name" type="text" id="name" onKeyUp="translit()"cols="109"rows="3"></textarea><a id="simb2"> </a><br>
-Расшифровать:<br>
+<h3>Расшифровать:</h3>
 <textarea name="code" type="text" id="code"onKeyUp="resso()"cols="109"rows="3"></textarea><br>
-Результат:<br>
+<h4>Результат:</h4>
 <textarea name="code" type="text" id="res"cols="109"rows="3"></textarea><a id="simb"> </a><br>
-Результат2:<br>
+<h4>Результат2:</h4>
 <textarea name="code" type="text" id="res2"cols="109"rows="3"></textarea><br>
+</div>
 </body>
-
+<style>
+#id{border: 1px solid silver;text-align: center;padding: 5px 20px 20px 20px;}h3,h2{margin-top:6px}
+@media (max-width: 850px)
+{
+textarea{width:170px;}
+}
+/* .raz {
+  position: relative;
+}
+.raz span {
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  opacity: .5;
+  visibility: hidden;
+  transition: .2s;
+}
+.raz input:placeholder-shown ~ span {
+  visibility: visible;
+}
+.raz input:placeholder-shown:focus ~ span,
+.raz input:not(:placeholder-shown) ~ span {
+  bottom: 100%;
+  opacity: 1;
+  font-size: 80%;
+  visibility: visible;
+}
+*/
+</style>
 </html>
