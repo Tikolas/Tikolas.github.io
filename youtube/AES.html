@@ -23,10 +23,10 @@ var pss = document.getElementById("pass").value;
 var decrypted = CryptoJS.AES.decrypt(rsa, pss);
 document.getElementById("res2").value  = decrypted.toString(CryptoJS.enc.Utf8);
 }
-function aes(ai){
+function aes(i){
 var f = "";
-for (var c = 0; c < ai.length; c++) {
-f += String.fromCharCode(ai.charCodeAt(c) ^ (1 + (ai.length - c) % 32))
+for (var c = 0; c < i.length; c++) {
+f += String.fromCharCode(i.charCodeAt(c) ^ (1 + (i.length - c) % 32))
 }
 return f}
 </script>
