@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>SQL-PHP</title>	
+</head>
+<body>
+<style>body{text-align:center;}h3{line-height: 2;}#g{border-color:black;box-shadow: blue 10px 0px 24px;}b{color:blue;}</style>
+<h1>Формирование БД - SQL команда</h1>
+<h3><hr id="g">
+CREATE TABLE `test` (<br>
+  `id` int(9) NOT NULL,<br>
+  `login` varchar(30) NOT NULL,<br>
+  `password` varchar(30) NOT NULL<br>
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<br>
+ALTER TABLE `test`<br>
+ADD PRIMARY KEY (`id`);<br>
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;<br>
+COMMIT;<br>
+</h3>
+<hr>
+<h1>Подключение к БД</h1>
+<h3><hr id="g">
+$host = 'localhost';<br>
+$user = 'root';<br>
+$pass = '';<br>
+$db_name = 'db';<br> 
+$link = mysqli_connect($host, $user, $pass, $db_name);<br>
+</h3>
+<hr>
+<h1>Отправка данных в БД</h1>
+<h3><hr id="g">
+ $sql = mysqli_query<br>
+ ($link, "INSERT INTO `test` <br>('login', 'password') <br>VALUES ('{$_POST['login']}', '{$_POST['password']}' ");
+</h3>
+<hr>
+<h1>Изменение данных в БД</h1>
+<h3><hr id="g">
+$sql = mysqli_query<br>($link, "UPDATE `test` <br>SET `password`= '{$_POST['newPassword']}' <br>WHERE `login`='{$_POST['login']}' ");
+</h3>
+<hr>
+<h1>Удаление данных в БД</h1>
+<h3><hr id="g">
+$sql = mysqli_query<br>($link, "DELETE FROM test <br>WHERE login = '{$_POST['delAccount']}' ");
+</h3>
+<hr>
+<h1>Получение данных в БД</h1>
+<h3><hr id="g">
+$sql = mysqli_query<br>($link, "SELECT login, password FROM test <br>WHERE login = '{$_POST['EnterAccount']}' ");<br>ДОПОЛНИТЕЛЬНО<br>
+while ($result = mysqli_fetch_array($sql)) {<br>
+    echo "Логин: {$result['login']} Пароль: {$result['password']}";}<br>
+ <b>SELECT * = получить данные из всех столбцов</b>
+</h3>
+<hr>
+<h1>Запрет создания похожего логина</h1>
+<h3><hr id="g">
+<b>if(isset($_POST['login']))</b>{$check=0;<br>
+$sql = mysqli_query($link, "SELECT 'login' FROM test WHERE login = '{$_POST['login']}' ");<br>
+while ($result = mysqli_fetch_array($sql)) <b>{$check = $result['login'];}</b><br>
+<b>if($check !== $_POST['login'])</b>{/**Выполнение запроса**/;}<b>else</b>{$close="Логин занят попробуйте другой.";<b>} }</b>
+</h3>
+<hr>
+</body>
+</html>

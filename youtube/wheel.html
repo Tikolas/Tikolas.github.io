@@ -1,126 +1,33 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <meta name="viewport" content="width=device-width, user-scalable=no">
-<link rel="icon"href="/logo2.png"type="image/png">
-<title>WheelLag</title></head>
+<title>RandomWord</title></head>
 <body>
-<script>window.onload = function() {defoult();}</script>
+<script>window.onload = function() {;}</script>
 <script>
-function clear(){document.getElementById("jav").innerHTML="";document.getElementById("wl").innerHTML="<li><div class='text'id='t1'>1</div></li>";document.getElementById("change").innerHTML="";}
-function fortunel(i){
+function del(d){document.getElementById('c'+d).value ="";}
+function randm(){ids=document.getElementById('in').value;rand=Math.floor(Math.random() * (ids - 0 + 1) + 0);
+for(b=1;b<=ids;b++){vcc=document.getElementById("c"+b+"").value;if(b==rand){document.getElementById('vword').innerHTML = vcc;break;}}}
+function clear(){document.getElementById("namew").innerHTML="";}
+function rwo(i){
 clear();
-if(i<53){
-var javs = document.getElementById("jav");
-cl=(360/i).toFixed(1);nn=i-1;
-for(m=1;m<=i;m++){if(nn>=m){let cm=cl*m;
-document.getElementById('change').innerHTML+='<input id="c'+m+'"onkeyup="b='+(m+1)+';e=this.value;vers(b,e);"><br>';
-javs.innerHTML += "li:nth-child("+(m+1)+") {transform: rotate("+cm+"deg) skewY(-60deg);}";
-document.getElementById("wl").innerHTML += '<li><div class="text"id="t'+(m+1)+'">'+(m+1)+'</div></li>';}}
-}}
-function defoult(){document.getElementById("jav").innerHTML = "li:nth-child(2) {transform: rotate(180deg) skewY(-60deg);}";
-document.getElementById("wl").innerHTML = '<li><div class="text"id="t1">1</div></li><li><div class="text"id="t2">2</div></li>';}
-/**function vush(){col = eval(document.getElementById('nmb').value);
-itos=(360 * 3 + k * 24) % 360 ;
-for(b=1;b<col;b++){ckl=(360/col).toFixed(1);cmm=ckl*b;if(itos>cmm){console.log(cmm,itos);};}}**/
-function vers(v,q){document.getElementById("t"+v).innerHTML= q ;}
+if(i<51){
+rand=Math.floor(Math.random() * (i - 0 + 1) + 0);
+for(m=1;m<=i;m++){
+document.getElementById('namew').innerHTML+='<input id="c'+m+'" value="'+'word'+m+'"><button onclick="del('+m+')">-</button><br>';
+}}}
+
 </script>
-
-<style id="jav"> </style>
-
 <style>
-.circle {
-	position: relative;
-	border: 1px solid black;
-	padding: 0;
-    margin: 1em auto;
-	width: 25em;
-    height: 25em;
-	border-radius: 50%;
-	list-style: none;
-    overflow: hidden;
-}
-li {
-	overflow: hidden;
-	position: absolute;
-	top: 0; right: 0;
-	width: 50%; height: 50%;
-	transform-origin: 0% 100%; 
-/*border:2px black solid;	*/
-box-shadow: black 2px -6px 0px 6px;
-}
-.text {
-	position: absolute;
-	left: -100%;
-	width: 200%; height: 200%;
-	text-align: center;
-    transform: skewY(60deg) rotate(15deg);
-    padding-top: 20px;
-}
-
-li:first-child {
-	transform: rotate(0deg) skewY(-60deg);background: green;    
-}
-li:nth-child(even) .text {
-	background: tomato; 
-}
-li:nth-child(odd) .text {
-	background: green; 
-}
-.str{width: 0;
-	height: 0;
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
-	border-bottom: 50px solid red;}
+body{text-align:center;}
 </style>
-<ul class="circle" id="wl">
-<li><div class="text"id="t1">1</div></li>
-<li><div class="text"id="t2">2</div></li>
-</ul>
-<center>
-<div class="str"> </div>
-<button id="go" style="position:relative" >123</button>
-<div><p>
-<input type="number" placeholder="Кл. " onkeyup="fortunel(this.value);"id="nmb"/></p>
+<h1>Рандомное слово</h1>
+<div>
+<a id="vword"> </a><Br><Br>
+<button onclick="randm();">Рандом!</button><Br><Br>
+<input type="number" placeholder="Кол. Слов" onkeyup="rwo(this.value);"id="in"><Br><Br>
+<div id="namew">
+<Input><Br><Br>
 </div>
-<input id="c0" onkeyup="b=1;e=this.value;vers(b,e);"/>
-<div id="change"> </div>
-</center>
-<script>
-function timer(a) {
-  return {
-    play: function(c) {
-      var d = performance.now();
-      c = c || a.to;
-      requestAnimationFrame(function e(b) {
-        b = (b - d) / a.duration;
-        1 <= b && (b = 1);//)% 360 + deg
-        a.elem.style.transform = "rotate(" + (a.from + (c - a.from) * b | 0) % 360  + "deg)";
-        1 == b && a.callback && a.callback();
-        1 > b && requestAnimationFrame(e)
-      })
-    }
-  }
-};
-var div = document.querySelector('.circle'),
-  but = document.querySelector('#go'),
-  num = 0;
-anim = timer({
-  from: 0,
-  to: 360 ,
-  duration: 2 * 900,
-  elem: div,
-  callback: function() {
-    console.log(num,k,360 * 3 + k * 24)
-  }
-});
-
-
-but.addEventListener('mousedown', function() {
-  var n = (12 * Math.random() | 0);
-  k = Math.floor(Math.random() * (360 - 0 + 1) + 0)
-  num = [4, 10, 3, 10, 2, 2, 1, 0, 6, 9, 9, 6, 11, 5, 1,15,16,17,18,19][n];
-  anim.play(360 * 3 + k * 24) //Анимация поворота 
-});
-</script>
 </body>
 </html>
