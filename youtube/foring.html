@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html><head><title>Форинг</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="description" content="Foring изменения чисел на слова"/>
+<meta name="keywords" content="Chedaro, чедаро, честный, chedaro, translit">
+<link rel="icon" href="../logo2.png" type="image/x-icon">
+<style>p{border:2px grey solid;font-size:20px;}input{font-size:30px}
+.num{display:grid;}input{box-sizing: border-box;width:100%;}
+textarea{height:150px;resize:vertical;}</style></head>
+<body onload="uo();off()">
+<p class="num">
+<input id="forp"placeholder="От"><br>
+<input id="form"placeholder="До">
+</p>
+<p>
+<input id="add"placeholder="Добавить">
+<input id="taga"placeholder="[ Начало"style="font-size:18px"onkeyup="uo();"value="[">
+<input id="tagb"placeholder=" Конец ]"style="font-size:18px"onkeyup="uo();"value="]">
+<input id="control"placeholder="1-3"style="font-size:18px"onkeyup="uo();off();"value="1">
+</p>
+<div class="num">
+Это:<textarea id="was"style="height:100px"placeholder="Значение которое надо заменить 0 0"></textarea><br>
+Заменит на:<textarea id="edit"style="height:100px"placeholder="Значение которое станет w z / 0 = w"></textarea><br>
+<textarea id="text"></textarea><br>
+Вывод:<textarea id="vivod"readonly></textarea><br>
+</div>
+<input type="submit"onclick="ref()"value="Start">
+<script>
+var ot =document.getElementById('forp');
+var dom=document.getElementById('form');
+var text=document.getElementById('text');
+var viv=document.getElementById('vivod');
+var ed = document.getElementById('edit');
+var ws = document.getElementById('was');
+var li =document.getElementById('add');
+function uo(){
+s = document.getElementById('taga').value;
+e = document.getElementById('tagb').value;
+cnl = document.getElementById('control').value;
+}
+function ref(){
+var str = ed.value.split(' ');
+var zxc = ws.value.split(' ');
+
+st=eval(ot.value);
+end=eval(dom.value);
+z=text.value;
+as=eval(li.value);
+
+for(i=st;i<=end;i++){
+if(cnl==1){
+m=i+as;
+z=z.split(s+i+e).join(s+m+e);
+}
+else if(cnl==2){
+m=str[i];
+z=z.split(s+i+e).join(s+m+e);
+}
+else if(cnl==3){
+m=str[i];
+wz=zxc[i];
+z=z.split(s+wz+e).join(s+m+e);
+}
+/*
+//m=i+as;
+m=str[i];
+//wz=zxc[i];
+z=z.split('['+i+']').join('['+m+']');
+//z=z.split('['+wz+']').join('['+m+']');
+*/
+if(i==end){viv.value=z;}
+}
+}
+function off(){
+if(cnl == 1){
+ws.setAttribute('disabled','true');
+ed.setAttribute('disabled','true');
+li.removeAttribute('disabled');
+}else if(cnl==2){
+li.setAttribute('disabled','true');
+ws.setAttribute('disabled','true');
+ed.removeAttribute('disabled');
+}else if(cnl==3){
+li.setAttribute('disabled','true');
+ws.removeAttribute('disabled');
+ed.removeAttribute('disabled');
+}
+}
+</script>
+</body></html>
