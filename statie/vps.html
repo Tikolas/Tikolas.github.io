@@ -16,14 +16,23 @@ cd /home <Br>
 python3 -m venv env<Br>
   source env/bin/activate<Br>
 <hr>
-<h1>server.js</h1>
+<h1>ASF</h1>
 <h3><hr id="g">
-var http = require('http'); <Br>
-http.createServer(function (req, res) { <Br>
-res.writeHead(200, <Br>
-{'Content-Type': 'text/plain'}); <Br>
-res.end('Hello World\n'); }).listen(8000, "localhost");<Br>
-console.log('Server running at http://localhost:8000/');<Br>
+sudo apt-get install screen -y<Br>
+ sudo apt-get install zip -y<Br>
+ mkdir asf<Br>
+ cd asf<Br>
+ wget https://github.com/JustArchiNET/ArchiSteamFarm/releases/download/5.0.4.3/ASF-linux-x64.zip<Br>
+ unzip ASF-linux-x64.zip<Br>
+ chmod +x ArchiSteamFarm<Br>
+ screen -S ASF или screen <Br>
+ cd ..<Br>
+ asf/ArchiSteamFarm<Br>
+ 
+ screen -ls <Br>
+ screen -r<Br>
+ kill (первые цифры)<Br>
+ 
 </h3>
 <hr>
 <h1>Node Запуск</h1>
