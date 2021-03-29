@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>NODE-JS</title>	
+</head>
+<body>
+<style>body{text-align:center;}h3{line-height: 2;}#g{border-color:black;box-shadow: blue 10px 0px 24px;}b{color:blue;}r{color:red}</style>
+<h1>Node npm</h1>
+<h3><hr id="g">
+Запускаем или ищем<br>
+<b>Node.js command prompt</b><br>
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Node.js<br>
+</h3>
+<hr>
+<h1>server.js</h1>
+<h3><hr id="g">
+var http = require('http'); <Br>
+http.createServer(function (req, res) { <Br>
+res.writeHead(200, <Br>
+{'Content-Type': 'text/plain'}); <Br>
+res.end('Hello World\n'); }).listen(8000, "localhost");<Br>
+console.log('Server running at http://localhost:8000/');<Br>
+</h3>
+<hr>
+<h1>Node Запуск</h1>
+<h3><hr id="g">
+Открываем <b>Node.js command prompt</b><br>
+Пишем <r>cd..</r> 2 раза<br>
+<r>d:</r> чтобы было D:\<br>
+Пишем <b>cd node</b><br> 
+И мы попадаем в <r>C:\node</r><br>
+Запускаем файл <r>node server.js</r><br>
+Пишем в браузере <b>localhost:8000</b><br>
+</h3>
+<hr>
+<h1>Работаем с npm</h1>
+<h3><hr id="g">
+<a href="https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript-ru">Источник</a><br>
+<r>npm init</r><br>
+</h3>
+<hr>
+
+</body>
+</html>
