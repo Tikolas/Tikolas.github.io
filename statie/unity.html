@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unity #1</title>
+<meta name="description">
+<style>body{text-align:center;}h3{line-height: 2;}#g{border-color:black;box-shadow: blue 10px 0px 24px;}b{color:blue;}r{color:red}h2{margin: 0;}</style>
+</head>
+<body>
+<h1>Unity Game #1</h1>
+<h3><hr id="g">
+<h2>Player</h2><br>
+<xmp>
+using UnityEngine.UI;
+public class player : MonoBehaviour
+{
+	private float movementSpeed = 8f;
+	public int score = 0;
+	private int coud = 0;
+	private int damge = 0;
+	public Text text;
+	public Text texti;
+	public GameObject maxY;
+	public GameObject minY;
+	public GameObject maxX;
+	public GameObject minX;
+    // Start is called before the first frame update
+    void Start()
+    {
+        text.text = score.ToString();
+        texti.text = damge.ToString();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float hInput = Input.GetAxis("Horizontal");
+        float vInput = Input.GetAxis("Vertical");
+        if(minX.transform.position.x > transform.position.x){hInput= 1;}
+        else if(maxX.transform.position.x < transform.position.x){hInput = -1;}
+        else if(minY.transform.position.y > transform.position.y){vInput = 1;}
+        else if(maxY.transform.position.y < transform.position.y){vInput = -1;}
+    	transform.position = transform.position + new Vector3(hInput * movementSpeed * Time.deltaTime, vInput * movementSpeed * Time.deltaTime, 0);
+
+    	if(Time.time>coud){score++;coud++;text.text = score.ToString();}
+
+    }
+    private void OnTriggerEnter2D(Collider2D col) {
+        if(col.tag == "lova") {
+            score--;text.text = score.ToString();
+            damge++;texti.text = damge.ToString();
+        }else if(col.tag == "bonus"){
+        	score=score+20;text.text = score.ToString();
+        }
+    }
+}
+</xmp>
+<hr>
+<h2>Enemy</h2><br>
+<xmp>
+public class enemy : MonoBehaviour
+{
+	public float speed;
+
+    void Update()
+    {
+        transform.Translate(Vector2.left * speed );
+        //transform.Translate(Vector2.up * speed ); вверх
+        //transform.Translate(Vector2.down * speed ); вниз
+        //transform.Translate(Vector2.down * 8f * Time.deltaTime); ++
+    }
+    private void OnTriggerEnter2D(Collider2D col) {
+        if(col.tag == "del") {
+            Destroy(gameObject);
+        }
+    }
+}
+</xmp>
+<hr>
+<h2>spawner</h2><br>
+<xmp>
+    public class spawner : MonoBehaviour
+    {
+        public GameObject[] gearVar;
+        public float cout = 2f;
+        public float timecout = 1f;
+        public float maxcout = 0.6f;
+        void FixedUpdate()
+        {
+            if(Time.time > cout){
+                int rand = Random.Range(0, gearVar.Length);
+                //Instantiate(gearVar[rand], gearVar[rand].transform.position, Quaternion.identity);
+                gearVar[rand].GetComponent<spawn>().spaw=true;
+                cout=Time.time+timecout;
+                if(timecout>=maxcout){timecout=timecout-0.05f;}
+            }
+        }
+    }
+</xmp>
+<hr>
+<h2>spawn</h2><br>
+<xmp>
+    public class spawn : MonoBehaviour
+    {
+        public GameObject gear;
+        public bool spaw;
+        void Start()
+        {
+            //Instantiate(gear, transform.position, Quaternion.identity);
+        }
+        void Update()
+        {
+            if(spaw){
+                Instantiate(gear, transform.position, Quaternion.identity);spaw=false;
+            }
+        }
+    }
+</xmp>
+</h3>
+<hr>
+</body>
+</html>
