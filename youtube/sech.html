@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Поиск</title>
+</head>
+<body>
+<style>body{text-align: center;}</style>
+<script>
+function go(){
+se = document.getElementById("separator").value;
+ze = document.getElementById("zemen").value;
+text = document.getElementById("text").value;
+itog = text.split(se).join(ze);
+document.getElementById("res").value = itog;
+}
+function serch(){
+texts = document.getElementById("texts").value;
+mass = document.getElementById("mass").value;
+sen = document.getElementById("search").value;
+itog = texts.split(mass);
+}
+function search(){
+document.getElementById("rs").value ="";
+sen = document.getElementById("search").value;
+for(i=0;i<itog.length;i++){
+if(itog[i].toLowerCase().includes(sen)){
+document.getElementById("rs").value += itog[i]+"\n";
+}
+}
+}
+</script>
+<div>Вот это:</div>
+<textarea id="separator"onkeyup="go()">|</textarea>
+<div>Заменить этим:</div>
+<textarea id="zemen"onkeyup="go()">,</textarea>
+<div>Текст:</div>
+<textarea id="text" onkeyup="go()"></textarea>
+<div>Результат:</div>
+<textarea id="res"></textarea>
+<br>
+<h2>Поиск</h2>
+<div>Текст:</div>
+<textarea id="texts" onkeyup="serch()"></textarea>
+<div>Разделитель:</div>
+<textarea id="mass" onkeyup="serch()">|</textarea>
+<div>Искать:</div>
+<textarea id="search" onkeyup="serch();search()"></textarea>
+<div>Результат:</div>
+<textarea id="rs"></textarea>
+
+
+</body>
+</html>
