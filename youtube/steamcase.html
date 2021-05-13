@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Case</title>
+</head>
+<body>
+<script src="cost.js"></script>
+<style>body{text-align: center;}.g{color: green;font-weight: bold;}.r{color:red;font-weight: bold;}
+textarea{width: 270px;height: 100px;}</style>
+<!--кейс 30 руб. +1руб.
+куйс 3360 руб. -20 руб.
+document.getElementById('sale').dataset.value
+document.getElementsByTagName("div")[1].dataset.item
+onclick="console.log(this.dataset.value)"
+onclick="sum = this.dataset.value"
+-->
+<div id="casecs"></div>
+<div>
+<h3>У меня есть</h3>
+<textarea id="thz"onkeyup="countcase()">18,1,6|200,10,7</textarea>
+<h3>Итог</h3>
+<textarea id="ksj"></textarea>
+</div>
+<script>
+cases = ["Prisma Case","Prisma 2 Case","Revolver Case","Danger Zone Case","Chroma 3 Case","Horizon Case","CS20 Case","Spectrum 2 Case","Shadow Case","Falchion Case","Chroma 2 Case","Clutch Case","Gamma Case","Gamma 2 Case","Operation Wildfire Case","Spectrum Case","Fracture Case","Operation Vanguard Weapon Case","Operation Broken Fang Case","Chroma Case","Operation Phoenix Weapon Case","Shattered Web Case","Glove Case","Operation Breakout Weapon Case","Huntsman Weapon Case","eSports 2014 Summer Case","CS:GO Weapon Case 3","eSports 2013 Winter Case","Winter Offensive Weapon Case","CS:GO Weapon Case 2","Operation Hydra Case","eSports 2013 Case","Operation Bravo Case","CS:GO Weapon Case","Snakebite Case"];
+sum=0;
+zee="";
+function first(cost){
+costk = cost.split(" pуб.").join("");
+costk = costk.split("|");
+for(i=0;i<35;i++){
+costk[i]=costk[i].split(",").join(".");
+costk[i]=eval(costk[i]);
+}
+console.log(costk);
+}
+function third(cost){
+first(cost);
+for(i=0;i<35;i++){
+cosz[i].push(costk[i]);
+}
+console.log("{"+cosz+"}");
+}
+function show(){
+//cos2[list[i]]-13/100*cosz[list[i]]
+for(i=0;i<35;i++){
+dey=eval((cosz[list[i]]-cos2[list[i]]).toFixed(2));
+if(dey>0){dey="<a class='g'>+"+dey+"</a>";}else{dey="<a class='r'>"+dey+"</a>";}
+document.getElementById("casecs").innerHTML += "<div onclick='ads(this.dataset.list)'data-value='"+cosz[list[i]]+"'data-list='"+list[i]+"'>"+ cases[list[i]] +" : "+cosz[list[i]]+" : "+dey +"</div><br><br>";
+}
+}
+function countcase(){
+ihave = document.getElementById("thz").value;
+document.getElementById("ksj").innerHTML="";
+//ihave="18,1,6|200,10,7";
+summa=0;
+cot=ihave.split("|");
+for(i=0;i<cot[0].split(",").length;i++){
+meh=eval((cosz[eval(cot[0].split(",")[i])]*eval(cot[1].split(",")[i])).toFixed(2));
+summa=summa+meh;
+document.getElementById("ksj").innerHTML+=meh+"\n";
+}
+document.getElementById("ksj").innerHTML+="\nИтого:"+summa.toFixed(2)+"\nКомиссия: "+eval((summa-(13/100)*summa).toFixed(2));
+}
+function ads(item){
+ihave = document.getElementById("thz").value;
+cot=ihave.split("|");
+if(cot[0].includes(item)==false){
+cot[0]=cot[0]+","+item;
+cot[1]=cot[1]+",1";
+document.getElementById("thz").innerHTML=cot[0]+"|"+cot[1];
+}
+}
+function cmd(cost){
+first(cost);
+}
+setTimeout(show,100);
+</script>
+</body>
+</html>
