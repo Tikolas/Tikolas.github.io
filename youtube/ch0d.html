@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ch0d</title>
+<!--<link rel="icon"href="/logo2.png"type="image/png">-->
+</head>
+<body>
+<style>
+
+</style>
+<textarea id="key"placeholder="key">w2</textarea><br>
+<textarea id="txt"placeholder="text"onkeyup="shifrom(document.getElementById('key').value,this.value)">qwe</textarea><a id="lt"></a><br>
+<textarea id="result"placeholder="result"></textarea><a id="lr"></a><br><br>
+
+<textarea id="unshifrkey"placeholder="unshifrkey">w2</textarea><br>
+<textarea id="unshifr"placeholder="unshifr text"onkeyup="unshifr(document.getElementById('unshifrkey').value,this.value)"></textarea><br>
+<textarea id="unshifres"placeholder="result"></textarea><br>
+<script>
+shifr = {'0-':'A','1-':'B','2-':'C','3-':'D','4-':'E','5-':'F','6-':'G','7-':'H','8-':'I','9-':'J'};
+shifre = ["0-","1-","2-","3-","4-","5-","6-","7-","8-","9-"];
+shife = ["A","B","C","D","E","F","G","H","I","J"];
+shnim = ["10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100"];
+shnum = ['K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','[',']','{','}','=','+','*','/',';',':','@','!','$','%','^','&','<','>','?','¿','¡','ʁ','o','є','q','m','m','Һ','ф','ʎ','ʟ','ɔ','d','u','о','н','w','v','ʞ','ņ','n','ɛ','ж','ǝ','ǝ','ग','ɹ','ʚ','ç','ɐ','z','ʎ','x','ʍ','ʌ','n','ʇ','s','ɹ','b','d','o','u','ɯ','l','ʞ','ɾ','ı','ɥ','ƃ','ɟ','ǝ','p','ɔ','q','ɐ'];
+shifrz = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:/\"|\\;[]{}*&^%$#@!()=+-_?.',абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ1234567890";
+
+function shifrom(key,text){
+shkey="";nn=0;umn=0;umz=0;ss="";
+for(i=0;i<key.length;i++){
+for(b=0;b<shifrz.length;b++){
+if(shifrz[b]==key[i]){
+shkey = shkey + b+"-";
+}}}
+
+umn = Math.ceil((shkey.split("-").length-1)/2 - 1);
+
+for(k=0;k<shkey.split("-").length-1;k++){
+if(k==umn){
+umz=eval(shkey.split("-")[k]);
+}
+else{
+nn=nn+eval(shkey.split("-")[k]);
+}}
+
+for(i=0;i<text.length;i++){
+for(b=0;b<shifrz.length;b++){
+if(text[i]==shifrz[b]){
+ss=ss+(b*umz+nn)+"-";
+}
+}
+}
+
+for(s=0;s<shifre.length;s++){
+ss = ss.split(shifre[s]).join(shife[s])
+}
+/*
+for(s=0;s<shnim.length;s++){
+ss = ss.split(shnim[s]).join(shnum[s]);
+}
+*/
+/*
+for(s=0;s<shnim.length;s++){
+b= shnim[s];a=shnum[s];
+ss = ss.split(b).join(a);
+}
+*/
+document.getElementById("result").value=ss;
+}
+
+function unshifr(key,text){
+uns=text;shkey="";nn=0;umn=0;umz=0;unz="";unc="";
+for(i=0;i<uns.length;i++){
+for(s=0;s<shnim.length;s++){
+if(uns[i]==shnum[s]){
+b= shnum[s];a=shnim[s];
+uns = uns.split(b).join(a);
+}
+//uns = uns.split(shnum[i]).join(shnim[i]);
+}}
+for(s=0;s<shifre.length;s++){
+uns = uns.split(shife[s]).join(shifre[s])
+}
+
+for(i=0;i<key.length;i++){
+for(b=0;b<shifrz.length;b++){
+if(shifrz[b]==key[i]){
+shkey = shkey + b+"-";
+}}}
+umn = Math.ceil((shkey.split("-").length-1)/2 - 1);
+for(k=0;k<shkey.split("-").length-1;k++){
+if(k==umn){
+umz=eval(shkey.split("-")[k]);
+}
+else{
+nn=nn+eval(shkey.split("-")[k]);
+}}
+
+uns = uns.split("-");
+for(i=0;i<uns.length-1;i++){
+uns[i] = (uns[i]-nn)/umz;
+}
+
+for(i=0;i<uns.length-1;i++){
+unz = unz + uns[i]+"-";
+}
+
+unz = unz.split("-");
+for(i=0;i<unz.length-1;i++){
+unz[i] = unz[i].split(unz[i]).join(shifrz[unz[i]]);
+}
+
+for(i=0;i<unz.length-1;i++){
+unc = unc + unz[i];
+}
+
+document.getElementById("unshifres").value=unc;
+}
+setTimeout(shifrom("w2","qwe"),100);
+</script>
+</body>
+</html>
