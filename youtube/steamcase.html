@@ -20,30 +20,13 @@ textarea{width: 270px;height: 100px;}.charti{width: 300px;height: 200px;display:
 cases = ["Prisma Case","Prisma 2 Case","Revolver Case","Danger Zone Case","Chroma 3 Case","Horizon Case","CS20 Case","Spectrum 2 Case","Shadow Case","Falchion Case","Chroma 2 Case","Clutch Case","Gamma Case","Gamma 2 Case","Operation Wildfire Case","Spectrum Case","Fracture Case","Operation Vanguard Weapon Case","Operation Broken Fang Case","Chroma Case","Operation Phoenix Weapon Case","Shattered Web Case","Glove Case","Operation Breakout Weapon Case","Huntsman Weapon Case","eSports 2014 Summer Case","CS:GO Weapon Case 3","eSports 2013 Winter Case","Winter Offensive Weapon Case","CS:GO Weapon Case 2","Operation Hydra Case","eSports 2013 Case","Operation Bravo Case","CS:GO Weapon Case","Snakebite Case"];
 sum=0;
 zee="";
-function first(cost){
-costk = cost.split(" pуб.").join("");
-costk = costk.split("|");
-for(i=0;i<35;i++){
-costk[i]=costk[i].split(",").join(".");
-costk[i]=eval(costk[i]);
-}
-console.log(costk);
-}
-function third(cost){
-first(cost);
-for(i=0;i<35;i++){
-cosz[i].push(costk[i]);
-}
-console.log("{"+cosz+"}");
-}
 function show(){
-//cosz2[list[i]]-13/100*cosz[list[i]]
 for(i=0;i<35;i++){
 dey=eval((cosz[list[i]]-cosz2[list[i]]).toFixed(2));
 dey2=eval((cosz[list[i]]-cosz3[list[i]]).toFixed(2));
 if(dey>0){dey=cosz2[list[i]]+"<sup class='g'>+"+dey+"</sup>";}else{dey=cosz2[list[i]]+"<sub class='r'>"+dey+"</sub>";}
 if(dey2>0){dey2=cosz3[list[i]]+"<sup class='g'>+"+dey2+"</sup>";}else{dey2=cosz3[list[i]]+"<sub class='r'>"+dey2+"</sub>";}
-document.getElementById("casecs").innerHTML += "<div onclick='ads(this.dataset.list)'data-value='"+cosz[list[i]]+"'data-list='"+list[i]+"'>"+ cases[list[i]] +" : "+cosz[list[i]]+" : "+dey+" : "+dey2+"</div><br><br>";
+document.getElementById("casecs").innerHTML += "<div onclick='ads(this.dataset.list);'data-value='"+cosz[list[i]]+"'data-list='"+list[i]+"'>"+ cases[list[i]] +" : "+cosz[list[i]]+" : "+dey+" : "+dey2+"</div><br><div class='charti'><canvas id='abb"+list[i]+"'></canvas></div><br>";
 }
 }
 function countcase(){
