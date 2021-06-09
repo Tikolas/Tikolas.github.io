@@ -4,8 +4,9 @@
 </head>
 <body>
 <script src="/jss/case.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
 <style>body{text-align: center;}.g{color: green;font-weight: bold;}.r{color:red;font-weight: bold;}
-textarea{width: 270px;height: 100px;}</style>
+textarea{width: 270px;height: 100px;}.charti{width: 300px;height: 200px;display: inline-block;}</style>
 
 <div>Название : Сегодня : Вчера : Позавчера</div><br>
 <div id="casecs"></div>
@@ -67,10 +68,41 @@ cot[1]=cot[1]+",1";
 document.getElementById("thz").innerHTML=cot[0]+"|"+cot[1];
 }
 }
-function cmd(cost){
-first(cost);
+function st(){
+for(i=0;i<35;i++){
+let w = cosz[i];
+let a = cosz2[i];let cas= cases[i];
+let s = cosz3[i];let el = "abb"+i;
+chartjss(w,a,s,el,cas);}
 }
+function chartjss(w,a,s,el,cas){
+c = document.getElementById(el);
+ctx = c.getContext('2d');
+myChart = new Chart(ctx, {
+type: 'line',
+data: {
+labels: ["Сегодня","Вчера","позаВчера"],
+datasets: [{
+label: cas,
+data: [w,a,s],
+fill: 'origin',
+backgroundColor: [
+'rgba(255, 99, 132, 0.2)'
+],
+borderColor: [
+'rgba(255, 99, 132, 1)',
+],
+borderWidth: 5
+        }]
+    },
+    options: {
+    responsive: true,
+}
+});
+}
+
 setTimeout(show,100);
+setTimeout(st,100);
 </script>
 </body>
 </html>
