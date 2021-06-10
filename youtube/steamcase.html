@@ -9,6 +9,7 @@
 textarea{width: 270px;height: 100px;}.charti{width: 300px;height: 200px;display: inline-block;}</style>
 
 <div>Название : Сегодня : Вчера : Позавчера</div><br>
+<div title="парсено"id="wh_ws_date"></div><br>
 <div id="casecs"></div>
 <div>
 <h3>У меня есть</h3>
@@ -83,9 +84,13 @@ borderWidth: 5
 }
 });
 }
-
+function timi(){
+time = new Date(date*1000);
+document.getElementById("wh_ws_date").innerHTML=time.getDate()+"."+(time.getMonth()+1)+"."+time.getFullYear();
+}
 setTimeout(show,100);
 setTimeout(st,100);
+setTimeout(timi,200);
 </script>
 </body>
 </html>
