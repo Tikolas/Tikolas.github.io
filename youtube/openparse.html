@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<style>body{text-align: center;}ul{width: 100px;margin: auto;}.cina{font-size: 25px;font-family: sans-serif;text-shadow: 0 0 black;}li{font-family: sans-serif;}input{font-size: 30px;margin: 10px;}select{font-size: 20px;}.par{max-width: 40%;font-size: 20px;margin: auto;font-family: sans-serif;}</style>
+<style>body{text-align: center;}ul{width: 100px;margin: auto;}.cina{font-size: 25px;font-family: sans-serif;text-shadow: 0 0 black;margin: 0;}li{font-family: sans-serif;}input{font-size: 30px;margin: 10px;}select{font-size: 20px;}.par{max-width: 40%;font-size: 20px;margin: auto;font-family: sans-serif;}div{margin-bottom: 130px;}.im{margin: 0;}</style>
 <h2>Выбрать</h2>
 <select id="site_name" onchange="te(this.value)">
 <option value="citilink">Citilink</option>
@@ -10,12 +10,12 @@
 <select id="category" onchange="los(this.value)"></select><br>
 <button style="margin-top: 10px;"onclick="los(document.getElementById('category').value)"title="Если не загрузился">Загрузить</button>
 
-<div id="ci_ob"style="display: none;"><input id="hf"onchange="pageloadS(this.value.toLowerCase(),0)"placeholder="Параметр"><br>
+<div id="ci_ob"style="display: none;margin:0;"><input id="hf"onchange="pageloadS(this.value.toLowerCase(),0)"placeholder="Параметр"><br>
 <input type="number" onchange="pageloadS(document.getElementById('hf').value.toLowerCase(),this.value)" placeholder="От этой цены"><br><select id="sb"><option value="1">Показывать картинку</option><option value="0">Без картинки</option></select></div>
 
-<div style="display: none;"id="buts"><button onclick="plusogr()">Показать 40</button><button onclick="maximum()">Показать ВСЁ</button></div>
+<div style="display: none;margin:0;"id="buts"><button onclick="plusogr()">Показать 40</button><button onclick="maximum()">Показать ВСЁ</button></div>
 
-<div style="display: none;"id="findbuts">
+<div style="display: none;margin:0;"id="findbuts">
 <button onclick="loadinFindAll(cc+20)">Показать 20</button>
 <button onclick="loadinFindAll(findPoPar.length)">Показать Всё</button></div>
 
@@ -23,6 +23,10 @@
 
 <div id='rmr'></div>
 <script>
+function number(num){
+num=num.toString();
+return (num + "").split("").reverse().join("").replace(/(\d{3})/g, "$1 ").split("").reverse().join("").replace(/^ /, "");
+}
 var site="";
 function te(v){
 let mas;
@@ -109,28 +113,32 @@ if(cc==maxs){clearInterval(inte);}
 }
 //Показывает картинку
 function pageload(i){
+let q = document.createElement("div");
+let g=document.createElement("div");
 if(i<cina.length && site=="citilink"){
 if(document.getElementById("sb").value=="1"){
-document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'><img src='"+image[list[i]]+"'></a>";
+q.innerHTML+="<div class='im'><a href='"+silka[list[i]]+"'><img src='"+image[list[i]]+"'></a></div>";
 }else{
-document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'class='cina'>Ссылка</a>";
+q.innerHTML+="<div class='im'><a href='"+silka[list[i]]+"'class='cina'>Ссылка</a></div>";
 }
-document.getElementById("rmr").innerHTML+="<div class='cina'>Цена: "+cina[list[i]].split(Math.floor(cina[list[i]]/1000)).join(Math.floor(cina[list[i]]/1000)+" ")+"</div>";
+q.innerHTML+="<div class='cina'>Цена: "+number(cina[list[i]])+"</div>";
 for(b=0;b<xara[list[i]].split("!").length;b++){
-document.getElementById("rmr").innerHTML+="<li>"+xara[list[i]].split("!")[b]+"</li>";
+g.innerHTML+="<li>"+xara[list[i]].split("!")[b]+"</li>";
 }
-document.getElementById("rmr").innerHTML+="</div>";
+q.append(g);
+document.getElementById("rmr").append(q);
 }
 else if(i<cina.length && site=="dns"){
 if(document.getElementById("sb").value=="1"){
-document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'><img src='"+image[list[i]]+"'></a>";
+q.innerHTML+="<div><a href='"+silka[list[i]]+"'><img src='"+image[list[i]]+"'></a>";
 }else{
-document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'class='cina'>Ссылка</a>";
+q.innerHTML+="<div><a href='"+silka[list[i]]+"'class='cina'>Ссылка</a>";
 }
-document.getElementById("rmr").innerHTML+="<div class='cina'>Цена: "+cina[list[i]].split(Math.floor(cina[list[i]]/1000)).join(Math.floor(cina[list[i]]/1000)+" ")+"</div>";
-document.getElementById("rmr").innerHTML+="<div class='par'>"+xara[list[i]]+"</div>";
+q.innerHTML+="<div class='cina'>Цена: "+cina[list[i]].split(Math.floor(cina[list[i]]/1000)).join(Math.floor(cina[list[i]]/1000)+" ")+"</div>";
+q.innerHTML+="<div class='par'>"+xara[list[i]]+"</div>";
 if(rating[list[i]]!="0"){
-document.getElementById("rmr").innerHTML+="<div class='par'>Оценка: "+rating[list[i]]+"</div>";}
+q.innerHTML+="<div class='par'>Оценка: "+rating[list[i]]+"</div>";}
+document.getElementById("rmr").append(q);
 }
 //endfunc
 }
