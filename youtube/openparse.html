@@ -1,0 +1,150 @@
+<meta charset="UTF-8">
+<style>body{text-align: center;}ul{width: 100px;margin: auto;}.cina{font-size: 25px;font-family: sans-serif;text-shadow: 0 0 black;}li{font-family: sans-serif;}input{font-size: 30px;margin: 10px;}select{font-size: 20px;}.par{max-width: 40%;font-size: 20px;margin: auto;font-family: sans-serif;}</style>
+<h2>Выбрать</h2>
+<select id="site_name" onchange="te(this.value)">
+<option value="citilink">Citilink</option>
+<option value="dns">Dns</option>
+<option value="steam">Steam</option>
+</select>
+
+<select id="category" onchange="los(this.value)"></select><br>
+<button style="margin-top: 10px;"onclick="los(document.getElementById('category').value)"title="Если не загрузился">Загрузить</button>
+
+<div id="ci_ob"style="display: none;"><input id="hf"onchange="pageloadS(this.value.toLowerCase(),0)"placeholder="Параметр"><br>
+<input type="number" onchange="pageloadS(document.getElementById('hf').value.toLowerCase(),this.value)" placeholder="От этой цены"><br><select id="sb"><option value="1">Показывать картинку</option><option value="0">Без картинки</option></select></div>
+
+<div style="display: none;"id="buts"><button onclick="plusogr()">Показать 40</button><button onclick="maximum()">Показать ВСЁ</button></div>
+
+<div style="display: none;"id="findbuts">
+<button onclick="loadinFindAll(cc+20)">Показать 20</button>
+<button onclick="loadinFindAll(findPoPar.length)">Показать Всё</button></div>
+
+<br><br><button onclick="document.getElementById('rmr').innerHTML='';ogr=2;cc=0;te(document.getElementById('site_name').value);">Очистить</button>
+
+<div id='rmr'></div>
+<script>
+var site="";
+function te(v){
+let mas;
+document.getElementById("category").innerHTML="";
+if(v=="citilink"){
+mas=["noutbuki","kompyutery","smartfony","videokarty"];
+site="citilink";
+document.getElementById("ci_ob").style.display="block";
+document.getElementById("buts").style.display="none";
+document.getElementById("findbuts").style.display="none";
+}else if(v=="dns"){
+mas=["noutbuki"];
+site="dns";
+document.getElementById("ci_ob").style.display="block";
+document.getElementById("buts").style.display="none";
+document.getElementById("findbuts").style.display="none";
+}else if(v=="steam"){
+mas=["case"];
+site="steam";
+document.getElementById("ci_ob").style.display="none";
+document.getElementById("buts").style.display="none";
+document.getElementById("findbuts").style.display="none";
+}
+for(i=0;i<mas.length;i++){
+document.getElementById("category").innerHTML+="<option value='"+mas[i]+"'>"+mas[i]+"</option>";
+}
+}
+//Загрузка скрипта
+function los(t){
+let script = document.createElement('script');
+script.src = "https://parsedat.github.io/parse/"+site+t+".js";
+document.head.append(script);
+script.onload = function() {
+wait();
+}
+if(site=="citilink" || site=="dns"){
+document.getElementById("buts").style.display="block";
+}
+}
+function wait(){
+if(site=="citilink"){
+image=[];silka=[];cina=[];xara=[];cc=0;ogr=1;var findPoPar=[];
+for(i=0,a=1,b=2,c=3;i<s.split("|").length-1;i=i+4){
+image.push(s.split("|")[i]);
+silka.push(s.split("|")[a+i]);
+cina.push(s.split("|")[b+i]);
+xara.push(s.split("|")[c+i]);
+}
+}
+else if(site=="dns"){
+image=[];silka=[];cina=[];xara=[];rating=[];cc=0;ogr=1;var findPoPar=[];
+for(i=0,a=1,b=2,c=3,d=4;i<s.split("|").length-1;i=i+5){
+image.push(s.split("|")[i]);
+silka.push(s.split("|")[a+i]);
+xara.push(s.split("|")[b+i]);
+cina.push(s.split("|")[c+i]);
+rating.push(s.split("|")[d+i])
+}
+}
+//next
+}
+
+//Поиск по xara
+function pageloadS(find,cinas){
+document.getElementById("buts").style.display="none";
+document.getElementById("findbuts").style.display="block";
+let cout=0;findPoPar=[];ogr=10;cc=0;
+document.getElementById("rmr").innerHTML="";
+for(i=0;i<cina.length;i++){
+    if(xara[list[i]].toLowerCase().includes(find) && eval(cinas)<eval(cina[list[i]])){
+        findPoPar.push(i);
+        cout++;
+    }
+}
+document.getElementById("rmr").innerHTML="Найдено: "+cout;
+}
+
+function loadinFindAll(maxs){
+var inte = setInterval(function(){
+pageload(findPoPar[cc]);
+cc++;
+if(cc==maxs){clearInterval(inte);}
+},10);
+}
+//Показывает картинку
+function pageload(i){
+if(i<cina.length && site=="citilink"){
+if(document.getElementById("sb").value=="1"){
+document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'><img src='"+image[list[i]]+"'></a>";
+}else{
+document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'class='cina'>Ссылка</a>";
+}
+document.getElementById("rmr").innerHTML+="<div class='cina'>Цена: "+cina[list[i]].split(Math.floor(cina[list[i]]/1000)).join(Math.floor(cina[list[i]]/1000)+" ")+"</div>";
+for(b=0;b<xara[list[i]].split("!").length;b++){
+document.getElementById("rmr").innerHTML+="<li>"+xara[list[i]].split("!")[b]+"</li>";
+}
+document.getElementById("rmr").innerHTML+="</div>";
+}
+else if(i<cina.length && site=="dns"){
+if(document.getElementById("sb").value=="1"){
+document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'><img src='"+image[list[i]]+"'></a>";
+}else{
+document.getElementById("rmr").innerHTML+="<div><a href='"+silka[list[i]]+"'class='cina'>Ссылка</a>";
+}
+document.getElementById("rmr").innerHTML+="<div class='cina'>Цена: "+cina[list[i]].split(Math.floor(cina[list[i]]/1000)).join(Math.floor(cina[list[i]]/1000)+" ")+"</div>";
+document.getElementById("rmr").innerHTML+="<div class='par'>"+xara[list[i]]+"</div>";
+if(rating[list[i]]!="0"){
+document.getElementById("rmr").innerHTML+="<div class='par'>Оценка: "+rating[list[i]]+"</div>";}
+}
+//endfunc
+}
+
+function lod(){
+var inte = setInterval(function(){
+pageload(cc);
+cc++;
+if(cc==ogr){clearInterval(inte);}
+},10);
+}
+
+function plusogr(){ogr=ogr+40;lod();}
+function maximum(){ogr=cina.length;lod();}
+te(document.getElementById('site_name').value);
+
+</script>
