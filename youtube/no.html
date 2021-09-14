@@ -1,0 +1,28 @@
+<style>body{text-align: center;}</style>
+<script>
+//https://parsedat.github.io/parse/vkimg.js
+img = document.createElement("img");
+t="2d";
+function raint(min, max)
+{
+  return eval(Math.floor(Math.random() * (max - min + 1)) + min);
+}
+
+function download(){
+rand=raint(0,s[t].length);
+img.src="https://"+s[t][rand];
+img.style="max-width: 100%;max-height: 100%;";
+//img.style="width: 100%;height: 100%;";
+document.body.append(img);
+document.getElementById("rns").innerHTML=rand;
+}
+
+function los(){
+let script = document.createElement('script');
+script.src = "https://parsedat.github.io/parse/vkimg.js";
+document.head.append(script);
+}
+</script>
+<div style="position: absolute;right: 50%;top: 5%;color: white;"id="rns">0</div>
+<button onclick="los();this.style='display:none'">Script</button>
+<button style="position: absolute;right: 50%;top: 0;"onclick="download()">Показать</button>
